@@ -1,0 +1,103 @@
+﻿@model PrintingOrder.Models.PrintOrder
+
+@{
+    ViewData["Title"] = "حذف أمر التشغيل";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg rounded-3 border-0">
+                <div class="card-body p-5">
+                    <h2 class="text-center text-danger fw-bold mb-4">
+                        ⚠️ تأكيد حذف أمر التشغيل
+                    </h2>
+                    <p class="text-center mb-4">
+                        هل أنت متأكد أنك تريد حذف هذا الأمر نهائيًا؟
+                    </p>
+
+                    <div class="table-responsive mb-4">
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                
+                                <tr>
+                                    <th>اسم المطبوعة</th>
+                                    <td>@Model.PrintName</td>
+                                </tr>
+                                <tr>
+                                    <th>الآلة</th>
+                                    <td>@Model.MachineType</td>
+                                </tr>
+                                <tr>
+                                    <th>التاريخ</th>
+                                    <td>@Model.Date.ToString("yyyy-MM-dd")</td>
+                                </tr>
+                                <tr>
+                                    <th>رقم العقد</th>
+                                    <td>@Model.ContractNumber</td>
+                                </tr>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <td>@Model.OrderNumber</td>
+                                </tr>
+                                <tr>
+                                    <th>عدد النسخ</th>
+                                    <td>@Model.CopiesCount</td>
+                                </tr>
+                                <tr>
+                                    <th>عدد الصفحات</th>
+                                    <td>@Model.PagesCount</td>
+                                </tr>
+                                <tr>
+                                    <th>عدد الملازم الكلي</th>
+                                    <td>@Model.TotalBooklets</td>
+                                </tr>
+                                <tr>
+                                    <th>عدد الكبسات الإجمالي</th>
+                                    <td>@Model.TotalPressRuns</td>
+                                </tr>
+                                <tr>
+                                    <th>عدد الكبسات المتبقية</th>
+                                    <td>@Model.RemainingPressRuns</td>
+                                </tr>
+                                <tr>
+                                    <th>عدد الكبسات المنجزة</th>
+                                    <td>@Model.CompletedPressRuns</td>
+                                </tr>
+                                <tr>
+                                    <th>القياس</th>
+                                    <td>@Model.Size</td>
+                                </tr>
+                                <tr>
+                                    <th>ملاحظات</th>
+                                    <td>@Model.Notes</td>
+                                </tr>
+                                <tr>
+                                    <th>تفاصيل</th>
+                                    <td>@Model.Details</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash-fill"></i> حذف
+                            </button>
+                        </form>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left-circle"></i> العودة للقائمة
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+}

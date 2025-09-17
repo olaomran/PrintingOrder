@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PrintingOrder.Models.MachineProduction>
+
+@{
+    ViewData["Title"] = "إنتاج الآلات";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary fw-bold">قائمة إنتاج الآلات</h2>
+        <a asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> إضافة إنتاج جديد
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle shadow-sm rounded">
+            <thead class="table-dark">
+                <tr>
+                    <th>أمر الطباعة</th>
+                    <th>الآلة</th>
+                    <th>القسم</th>
+                    <th>تاريخ الإنتاج</th>
+                    <th>عدد الساعات</th>
+                    <th>عدد الكبسات</th>
+                    <th>عدد النسخ المنتجة</th>
+                    <th>ملاحظات</th>
+                    <th>إجراءات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.PrintOrder.PrintName</td>
+                        <td>@item.Machine.Name</td>
+                        <td>@item.Section</td>
+                        <td>@item.ProductionDate.ToString("yyyy-MM-dd")</td>
+                        <td>@item.Hours</td>
+                        <td>@item.PressRuns</td>
+                        <td>@item.ProducedCopies</td>
+                        <td>@item.Notes</td>
+                        <td>
+                            
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm mb-1">
+                                <i class="bi bi-trash"></i> حذف
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+}

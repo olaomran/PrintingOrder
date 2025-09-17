@@ -1,0 +1,240 @@
+﻿@model PrintingOrder.Models.MachineProduction
+<div dir="rtl" class="container mt-4">
+    <h2 class="mb-3">إضافة عملية إنتاج</h2>
+
+    <!-- ✅ أضفنا id للفورم -->
+    <form id="productionForm" asp-action="Create" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <!-- القسم -->
+        <div class="form-group">
+            <label>القسم</label>
+            <select class="form-control" id="Section" name="Section">
+                <option value="Print">طباعة</option>
+                <option value="Binding">تجليد</option>
+            </select>
+        </div>
+
+        <!-- أمر الطباعة -->
+        <div class="form-group">
+            <label>أمر الطباعة</label>
+            <select class="form-control" id="PrintOrderSelect" name="PrintOrderId">
+                @foreach (var po in ViewBag.PrintOrders)
+                {
+                    <option value="@po.Id"
+                            data-remaining="@po.RemainingPressRuns"
+                            data-remaining-binding="@((po.CopiesCount - po.FoldedCopies))">
+                        @po.PrintName
+                    </option>
+                }
+            </select>
+        </div>
+
+        <!-- الآلة -->
+        <div class="form-group">
+            <label>الآلة</label>
+            <select class="form-control" id="MachineSelect" name="MachineId">
+                @foreach (var m in ViewBag.Machines)
+                {
+                    <option value="@m.Id">@m.Name</option>
+                }
+            </select>
+        </div>
+
+        <!-- عدد الكبسات (للطباعة فقط) -->
+        <div class="form-group" id="pressRunsGroup">
+            <label>عدد الكبسات</label>
+            <input type="number" class="form-control" name="PressRuns" id="PressRuns" min="1" />
+            <small id="pressRemainingInfo" class="form-text text-muted"></small>
+        </div>
+
+        <!-- عدد النسخ (للتجليد فقط) -->
+        <div class="form-group" id="copiesGroup" style="display:none;">
+            <label>عدد النسخ المجلدة</label>
+            <input type="number" class="form-control" name="ProducedCopies" id="ProducedCopies" min="1" />
+            <small id="copiesRemainingInfo" class="form-text text-muted"></small>
+        </div>
+
+        <!-- ساعات العمل -->
+        <div class="form-group">
+            <label>مدة الإنتاج بالساعات</label>
+            <input type="number" class="form-control" name="Hours" step="0.1" />
+        </div>
+
+        <!-- الموظفون -->
+        <h5 class="mt-4">الموظفون المنفذون</h5>
+        <div class="form-group">
+            <label>اختر الموظف</label>
+            <select class="form-control" id="employeeDropdown">
+                <option value="">-- اختر موظف --</option>
+                @foreach (var emp in ViewBag.Employees)
+                {
+                    <option value="@emp.Id">@emp.FirstName @emp.Nickname</option>
+                }
+            </select>
+        </div>
+
+        <!-- الورديات كـ checkbox -->
+        <div class="form-group">
+            <label>الورديات</label><br />
+            <label><input type="checkbox" value="أولى" class="shiftCheckbox" /> أولى</label>
+            <label><input type="checkbox" value="ثانية" class="shiftCheckbox" /> ثانية</label>
+            <label><input type="checkbox" value="ثالثة" class="shiftCheckbox" /> ثالثة</label>
+            <label><input type="checkbox" value="إضافي" class="shiftCheckbox" /> إضافي</label>
+        </div>
+
+        <div class="form-group">
+            <label>أرقام الملازم</label>
+            <input type="text" class="form-control" id="bookletNumbers" placeholder="أدخل الأرقام مفصولة بفواصل" />
+        </div>
+
+        <button type="button" id="addEmployeeBtn" class="btn btn-success mt-2">إضافة موظف</button>
+
+        <table class="table table-bordered mt-3" id="employeeTable">
+            <thead>
+                <tr>
+                    <th>الموظف</th>
+                    <th>الورديات</th>
+                    <th>أرقام الملازم</th>
+                    <th>إجراء</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- ✅ الحقل المخفي -->
+        <input type="hidden" name="EmployeeDataJson" id="EmployeeDataJson" />
+
+        <div class="form-group">
+            <label>ملاحظات</label>
+            <textarea class="form-control" name="Notes"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">حفظ</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // ===============================
+        // 🔹 التحكم بالحقول حسب القسم
+        // ===============================
+        const sectionSelect = document.getElementById("Section");
+        const pressRunsGroup = document.getElementById("pressRunsGroup");
+        const copiesGroup = document.getElementById("copiesGroup");
+        const pressRunsInput = document.getElementById("PressRuns");
+        const copiesInput = document.getElementById("ProducedCopies");
+        const printOrderSelect = document.getElementById("PrintOrderSelect");
+        const pressRemainingInfo = document.getElementById("pressRemainingInfo");
+        const copiesRemainingInfo = document.getElementById("copiesRemainingInfo");
+
+        function toggleFields() {
+            if (sectionSelect.value === "Print") {
+                pressRunsGroup.style.display = "block";
+                copiesGroup.style.display = "none";
+                updatePressRemaining();
+            } else if (sectionSelect.value === "Binding") {
+                pressRunsGroup.style.display = "none";
+                copiesGroup.style.display = "block";
+                updateCopiesRemaining();
+            }
+        }
+
+        function updatePressRemaining() {
+            const selectedOption = printOrderSelect.selectedOptions[0];
+            if (!selectedOption) return;
+
+            const remaining = parseInt(selectedOption.dataset.remaining);
+            pressRunsInput.max = remaining;
+            if (parseInt(pressRunsInput.value) > remaining) {
+                alert(`عدد الكبسات أكبر من المتبقي (${remaining})`);
+                pressRunsInput.value = remaining;
+            }
+            pressRemainingInfo.innerText = `عدد الكبسات المتبقية بعد هذه العملية: ${remaining - (parseInt(pressRunsInput.value) || 0)}`;
+        }
+
+        function updateCopiesRemaining() {
+            const selectedOption = printOrderSelect.selectedOptions[0];
+            if (!selectedOption) return;
+
+            const remaining = parseInt(selectedOption.dataset.remainingBinding);
+            copiesInput.max = remaining;
+            if (parseInt(copiesInput.value) > remaining) {
+                alert(`عدد النسخ المجلدة أكبر من المتبقي (${remaining})`);
+                copiesInput.value = remaining;
+            }
+            copiesRemainingInfo.innerText = `عدد النسخ المتبقية بعد هذه العملية: ${remaining - (parseInt(copiesInput.value) || 0)}`;
+        }
+
+        sectionSelect.addEventListener("change", toggleFields);
+        pressRunsInput.addEventListener("input", updatePressRemaining);
+        copiesInput.addEventListener("input", updateCopiesRemaining);
+        printOrderSelect.addEventListener("change", () => {
+            updatePressRemaining();
+            updateCopiesRemaining();
+        });
+        toggleFields();
+
+        // ===============================
+        // 🔹 الموظفون
+        // ===============================
+        let selectedEmployees = [];
+
+        function renderEmployeesTable() {
+            const tbody = document.querySelector('#employeeTable tbody');
+            tbody.innerHTML = '';
+            selectedEmployees.forEach((emp, index) => {
+                const row = `
+                    <tr>
+                        <td>${emp.Name}</td>
+                        <td>${emp.Shifts.join(', ')}</td>
+                        <td>${emp.Booklets.join(', ')}</td>
+                        <td><button type="button" class="btn btn-danger btn-sm" onclick="removeEmployee(${index})">حذف</button></td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        document.getElementById('addEmployeeBtn').addEventListener('click', function () {
+            const empSelect = document.getElementById('employeeDropdown');
+            const empId = parseInt(empSelect.value);
+            const empName = empSelect.options[empSelect.selectedIndex]?.text;
+
+            const shiftCheckboxes = document.querySelectorAll('.shiftCheckbox:checked');
+            const shifts = Array.from(shiftCheckboxes).map(cb => cb.value);
+
+            const booklets = document.getElementById('bookletNumbers').value.split(',')
+                .map(s => parseInt(s.trim()))
+                .filter(n => !isNaN(n));
+
+            if (!empId || shifts.length === 0) {
+                alert('يرجى اختيار الموظف وتحديد وردية واحدة على الأقل');
+                return;
+            }
+
+            selectedEmployees.push({ EmployeeId: empId, Name: empName, Shifts: shifts, Booklets: booklets });
+            renderEmployeesTable();
+
+            // تنظيف الحقول
+            empSelect.value = '';
+            shiftCheckboxes.forEach(cb => cb.checked = false);
+            document.getElementById('bookletNumbers').value = '';
+        });
+
+        function removeEmployee(index) {
+            selectedEmployees.splice(index, 1);
+            renderEmployeesTable();
+        }
+
+        // ===============================
+        // 🔹 عند حفظ الفورم
+        // ===============================
+        document.getElementById('productionForm').addEventListener('submit', function () {
+            const json = JSON.stringify(selectedEmployees);
+            console.log("🚀 Submitting Employees: ", json); // يظهر بالـ console
+            document.getElementById('EmployeeDataJson').value = json;
+        });
+    </script>
+}

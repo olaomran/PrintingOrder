@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - أوامر التشغيل</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index">أوامــر التشــغيل</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+
+                @* === Administrator, commerical_user, ProductionManager === *@
+                @if (User.IsInRole("Administrator") || User.IsInRole("commerical_user") || User.IsInRole("ProductionManager"))
+                {
+                    <li class="nav-item"><a class="nav-link" asp-controller="PrintOrders" asp-action="Index">📑 أوامر التشغيل</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Machines" asp-action="Index">⚙️ الآلات</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Employees" asp-action="Index">👷 الموظفون</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="MachineProductions" asp-action="Index">🏭 الإنتاج</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            📊 تقارير الإنتاج اليومية
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!-- رابط تقرير يومي لإنتاج قسم الطبع -->
+                            <li>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="Generate">تقرير يومي لإنتاج قسم الطبع</a>
+                            </li>
+                            <!-- رابط تقرير فني لإنتاج قسم التجليد -->
+                            <li>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="GenerateFoldingReport">تقرير فني لإنتاج قسم التجليد</a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+
+                @* === GeneralManager === *@
+                @if (User.IsInRole("GeneralManager"))
+                {
+                    <li class="nav-item"><a class="nav-link" asp-controller="PrintOrders" asp-action="Index">📑 عرض أوامر التشغيل</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            📊 تقارير الإنتاج اليومية
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!-- رابط تقرير يومي لإنتاج قسم الطبع -->
+                            <li>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="Generate">تقرير يومي لإنتاج قسم الطبع</a>
+                            </li>
+                            <!-- رابط تقرير فني لإنتاج قسم التجليد -->
+                            <li>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="GenerateFoldingReport">تقرير فني لإنتاج قسم التجليد</a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+
+            <ul class="navbar-nav">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="nav-item">
+                        <form asp-area="Identity" asp-page="/Account/Logout" method="post" id="logoutForm">
+                            <button type="submit" class="btn btn-link nav-link">🚪 تسجيل الخروج</button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <a href="/Identity/Account/Login" class="btn btn-link nav-link">🔑 تسجيل الدخول</a>
+
+                    
+                }
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+@RenderSection("Scripts", required: false)

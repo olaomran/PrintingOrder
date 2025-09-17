@@ -1,0 +1,73 @@
+﻿@model IEnumerable<PrintingOrder.Models.PrintOrder>
+
+@{
+    ViewData["Title"] = "أوامر التشغيل";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary fw-bold">قائمة أوامر التشغيل</h2>
+        <a asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> إضافة أمر جديد
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle shadow-sm rounded">
+            <thead class="table-dark">
+                <tr>
+                    <th>اسم المطبوعة</th>
+                    <th>الآلة</th>
+                    <th>التاريخ</th>
+                    <th>رقم العقد</th>
+                    <th>رقم المباشرة</th>
+                    <th>عدد النسخ</th>
+                    <th>عدد الصفحات</th>
+                    <th>القياس</th>
+                    <th>عدد الملازم الكلي</th>
+                    <th>عدد الكبسات الإجمالي</th>
+                    <th>عدد الكبسات المنجزة </th>
+                    <th> عدد الكبسات المتبقية</th>
+                    <th>عدد النسخ المجلدة </th>
+                    
+                    <th>ملاحظات</th>
+                    
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.PrintName</td>
+                        <td>@item.MachineType</td>
+                        <td>@item.Date.ToString("yyyy-MM-dd")</td>
+                        <td>@item.ContractNumber</td>
+                        <td>@item.OrderNumber</td>
+                        <td>@item.CopiesCount</td>
+                        <td>@item.PagesCount</td>
+                        <td>@item.Size</td>
+                        <td>@item.TotalBooklets</td>
+                        <td>@item.TotalPressRuns</td>
+                        <td>@item.CompletedPressRuns</td>
+                        <td>@item.RemainingPressRuns</td>
+                        <td>@item.FoldedCopies</td>
+                        
+                        <td>@item.Notes</td>
+                        
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash"></i> حذف
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+}
