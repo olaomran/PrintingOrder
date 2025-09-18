@@ -24,7 +24,7 @@ namespace PrintingOrder.Models
 
         [Display(Name = "عدد صفحات الملزمة")]
 
-        public int? PagesCount { set; get; }
+        public int? PagesCount { set; get; } = 16;
 
 
 
@@ -34,7 +34,7 @@ namespace PrintingOrder.Models
 
         [Display(Name = "الكمية المنجزة ")]
 
-        public int CompletedQuantity { set; get; }
+        public int CompletedQuantity { set; get; } = 0; 
 
         [Display(Name = "الكمية المتبقية ")]
 
@@ -46,7 +46,7 @@ namespace PrintingOrder.Models
         public SignatureStatus SignatureStatus { get; set; } = SignatureStatus.NotStarted;
 
 
-        public ICollection<MachineProduction>? MachineProductions { get; set; }
+        public ICollection<EmployeeProductionDetail>? EmployeeProductionDetails { get; set; }
 
 
     }

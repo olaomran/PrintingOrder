@@ -62,18 +62,6 @@ namespace PrintingOrder.Models
         [Display(Name = "التاريخ المتفق عليه للتسليم")]
         public DateTime? AgreedDeliveryDate { get; set; }
 
-
-
-        [Required]
-        [Display(Name = "عدد النسخ")]
-        public int CopiesCount { get; set; }
-
-
-        [Required]
-        [Display(Name = "عدد صفحات المطبوعة")]
-        public int PagesCount { get; set; }
-
-
         [Display(Name = "العائدية")]
         public int? CustomerId { get; set; }
         public Customer? Customer { get; set; }
@@ -82,6 +70,15 @@ namespace PrintingOrder.Models
         [Display(Name = "المندوب")]
         public int? DelegateId { get; set; }
         public Delegate? Delegate { get; set; }
+
+        [Required]
+        [Display(Name = " عدد النسخ المطلوبة")]
+        public int CopiesCount { get; set; }
+
+
+        [Required]
+        [Display(Name = "عدد صفحات المطبوعة")]
+        public int PagesCount { get; set; }
 
         // Calculated fields stored for convenience (can also be computed on the fly)
         //عدد الملازم الكلي
@@ -107,10 +104,12 @@ namespace PrintingOrder.Models
         public int CompletedPressRuns { get; set; }
 
 
+
         [Display(Name = "عدد النسخ المجلدة ")]
         public int FoldedCopies { get; set; } = 0; // عدد النسخ المجلدة، يبدأ بـ0
 
-
+        [Display(Name = "عدد النسخ المُسلمة للمستودع ")]
+        public int DeliveriedCopiesToStore { get; set; } = 0; // عدد النسخ المُسلمة، يبدأ بـ0
 
         [Display(Name = "قياس النموذج")]
         public int? PrintSizeId  { get; set; }   
@@ -135,13 +134,16 @@ namespace PrintingOrder.Models
 
         
 
-        public ICollection<PrintSignature>? bookGatherings { get; set; }
+        public ICollection<PrintSignature>? PrintSignatures { get; set; }
 
         public ICollection<MachineProduction>? MachineProductions { get; set; }
 
-        public ICollection<PrintOrderRequiredItem>? requiredItems { get; set; }
+        public ICollection<PrintOrderRequiredItem>? RequiredItems { get; set; }
 
+        public ICollection<PrintOrderDelivery>? PrintOrderDeliveries { get; set; }
         public ICollection<PrintOrderCalimPayment>? PrintOrderPayments { get; set; }
+
+        
 
 
     }

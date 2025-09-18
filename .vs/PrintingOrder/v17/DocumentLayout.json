@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\Migrations\\20250918083108_newMig1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\Migrations\\20250918083108_newMig1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\printorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\printorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\data\\migrations\\20250918102146_newmig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:data\\migrations\\20250918102146_newmig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\machineproduction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\machineproduction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\employeeproductiondetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\employeeproductiondetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\printsignature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\printsignature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\deliverytostore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\deliverytostore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\printorderdelivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\printorderdelivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\printordercalimpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,14 +67,6 @@
       "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\employeeproductiondetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\employeeproductiondetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\enumtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\enumtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -67,16 +79,8 @@
       "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\machine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\machineproduction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\machineproduction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\printorderrequireditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\printorderrequireditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\printsignature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\printsignature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\printsize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -89,14 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\models\\productionconsumeditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|solutionrelative:models\\productionconsumeditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\Migrations\\20250918001350_newMig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\Migrations\\20250918001350_newMig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D4F5C49-BAA5-48BC-849B-4998691E9ABC}|PrintingOrder.csproj|c:\\users\\omran\\source\\repos\\printingorder\\controllers\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -158,37 +154,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20250918083108_newMig1.cs",
-              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\Migrations\\20250918083108_newMig1.cs",
-              "RelativeDocumentMoniker": "Data\\Migrations\\20250918083108_newMig1.cs",
-              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\Migrations\\20250918083108_newMig1.cs",
-              "RelativeToolTip": "Data\\Migrations\\20250918083108_newMig1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "20250918102146_newMig.cs",
+              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\Migrations\\20250918102146_newMig.cs",
+              "RelativeDocumentMoniker": "Data\\Migrations\\20250918102146_newMig.cs",
+              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\Migrations\\20250918102146_newMig.cs",
+              "RelativeToolTip": "Data\\Migrations\\20250918102146_newMig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T08:31:08.973Z",
+              "WhenOpened": "2025-09-18T10:21:46.806Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PrintOrder.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintOrder.cs",
               "RelativeDocumentMoniker": "Models\\PrintOrder.cs",
               "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintOrder.cs",
               "RelativeToolTip": "Models\\PrintOrder.cs",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAAAI8AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAAGsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-18T08:19:56.343Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployeeProductionDetail.cs",
+              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\EmployeeProductionDetail.cs",
+              "RelativeDocumentMoniker": "Models\\EmployeeProductionDetail.cs",
+              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\EmployeeProductionDetail.cs",
+              "RelativeToolTip": "Models\\EmployeeProductionDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T07:57:52.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PrintSignature.cs",
+              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintSignature.cs",
+              "RelativeDocumentMoniker": "Models\\PrintSignature.cs",
+              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintSignature.cs",
+              "RelativeToolTip": "Models\\PrintSignature.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwCgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T23:18:47.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAuwCQAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T00:06:57.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "MachineProduction.cs",
+              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\MachineProduction.cs",
+              "RelativeDocumentMoniker": "Models\\MachineProduction.cs",
+              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\MachineProduction.cs",
+              "RelativeToolTip": "Models\\MachineProduction.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAACoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T09:38:26.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DeliveryToStore.cs",
+              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\DeliveryToStore.cs",
+              "RelativeDocumentMoniker": "Models\\DeliveryToStore.cs",
+              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\DeliveryToStore.cs",
+              "RelativeToolTip": "Models\\DeliveryToStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T08:58:33.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PrintOrderDelivery.cs",
+              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintOrderDelivery.cs",
+              "RelativeDocumentMoniker": "Models\\PrintOrderDelivery.cs",
+              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintOrderDelivery.cs",
+              "RelativeToolTip": "Models\\PrintOrderDelivery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T09:01:50.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "PrintOrderCalimPayment.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintOrderCalimPayment.cs",
               "RelativeDocumentMoniker": "Models\\PrintOrderCalimPayment.cs",
@@ -196,25 +265,11 @@
               "RelativeToolTip": "Models\\PrintOrderCalimPayment.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T08:15:53.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T08:15:53.315Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PaymentClaim.cs",
-              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PaymentClaim.cs",
-              "RelativeDocumentMoniker": "Models\\PaymentClaim.cs",
-              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PaymentClaim.cs",
-              "RelativeToolTip": "Models\\PaymentClaim.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAABIAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:58:39.562Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Models\\Category.cs",
@@ -222,12 +277,23 @@
               "RelativeToolTip": "Models\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:58:18.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:58:18.688Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
+              "Title": "PaymentClaim.cs",
+              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PaymentClaim.cs",
+              "RelativeDocumentMoniker": "Models\\PaymentClaim.cs",
+              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PaymentClaim.cs",
+              "RelativeToolTip": "Models\\PaymentClaim.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T07:58:39.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Customer.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\Customer.cs",
               "RelativeDocumentMoniker": "Models\\Customer.cs",
@@ -235,25 +301,11 @@
               "RelativeToolTip": "Models\\Customer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:58:15.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:58:15.867Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T00:06:57.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "DailyReport.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\DailyReport.cs",
               "RelativeDocumentMoniker": "Models\\DailyReport.cs",
@@ -261,12 +313,11 @@
               "RelativeToolTip": "Models\\DailyReport.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:58:09.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:58:09.485Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "DailyReportItem.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\DailyReportItem.cs",
               "RelativeDocumentMoniker": "Models\\DailyReportItem.cs",
@@ -274,25 +325,11 @@
               "RelativeToolTip": "Models\\DailyReportItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:58:06.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:58:06.253Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "EmployeeProductionDetail.cs",
-              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\EmployeeProductionDetail.cs",
-              "RelativeDocumentMoniker": "Models\\EmployeeProductionDetail.cs",
-              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\EmployeeProductionDetail.cs",
-              "RelativeToolTip": "Models\\EmployeeProductionDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:57:52.909Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
@@ -300,12 +337,11 @@
               "RelativeToolTip": "Models\\ErrorViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:57:40.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:57:40.373Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\Item.cs",
               "RelativeDocumentMoniker": "Models\\Item.cs",
@@ -313,12 +349,11 @@
               "RelativeToolTip": "Models\\Item.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:57:37.121Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:57:37.121Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "Machine.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\Machine.cs",
               "RelativeDocumentMoniker": "Models\\Machine.cs",
@@ -326,12 +361,11 @@
               "RelativeToolTip": "Models\\Machine.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:57:34.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:57:34.763Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\Employee.cs",
               "RelativeDocumentMoniker": "Models\\Employee.cs",
@@ -339,12 +373,11 @@
               "RelativeToolTip": "Models\\Employee.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T23:06:13.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T23:06:13.132Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "Delegate.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\Delegate.cs",
               "RelativeDocumentMoniker": "Models\\Delegate.cs",
@@ -352,12 +385,11 @@
               "RelativeToolTip": "Models\\Delegate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T23:05:53.851Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T23:05:53.851Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "PrintSize.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintSize.cs",
               "RelativeDocumentMoniker": "Models\\PrintSize.cs",
@@ -365,12 +397,11 @@
               "RelativeToolTip": "Models\\PrintSize.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T23:13:20.086Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T23:13:20.086Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "PrintOrderRequiredItem.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintOrderRequiredItem.cs",
               "RelativeDocumentMoniker": "Models\\PrintOrderRequiredItem.cs",
@@ -378,38 +409,11 @@
               "RelativeToolTip": "Models\\PrintOrderRequiredItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T22:56:26.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T22:56:26.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "PrintSignature.cs",
-              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintSignature.cs",
-              "RelativeDocumentMoniker": "Models\\PrintSignature.cs",
-              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\PrintSignature.cs",
-              "RelativeToolTip": "Models\\PrintSignature.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T23:18:47.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "EnumTypes.cs",
-              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\EnumTypes.cs",
-              "RelativeDocumentMoniker": "Models\\EnumTypes.cs",
-              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\EnumTypes.cs",
-              "RelativeToolTip": "Models\\EnumTypes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T23:34:50.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Unit.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\Unit.cs",
               "RelativeDocumentMoniker": "Models\\Unit.cs",
@@ -417,12 +421,11 @@
               "RelativeToolTip": "Models\\Unit.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:57:15.795Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:57:15.795Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Store.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\Store.cs",
               "RelativeDocumentMoniker": "Models\\Store.cs",
@@ -430,38 +433,11 @@
               "RelativeToolTip": "Models\\Store.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T07:57:14.625Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T07:57:14.625Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "MachineProduction.cs",
-              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\MachineProduction.cs",
-              "RelativeDocumentMoniker": "Models\\MachineProduction.cs",
-              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\MachineProduction.cs",
-              "RelativeToolTip": "Models\\MachineProduction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T23:01:13.208Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "20250918001350_newMig.cs",
-              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\Migrations\\20250918001350_newMig.cs",
-              "RelativeDocumentMoniker": "Data\\Migrations\\20250918001350_newMig.cs",
-              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Data\\Migrations\\20250918001350_newMig.cs",
-              "RelativeToolTip": "Data\\Migrations\\20250918001350_newMig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T00:13:50.943Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Views\\MachineProductions\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\MachineProductions\\Edit.cshtml",
@@ -469,12 +445,11 @@
               "RelativeToolTip": "Views\\MachineProductions\\Edit.cshtml",
               "ViewState": "AgIAACEAAAAAAAAAAAAcwC4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T00:09:45.931Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:09:45.931Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Views\\MachineProductions\\Delete.cshtml",
               "RelativeDocumentMoniker": "Views\\MachineProductions\\Delete.cshtml",
@@ -482,12 +457,11 @@
               "RelativeToolTip": "Views\\MachineProductions\\Delete.cshtml",
               "ViewState": "AgIAACgAAAAAAAAAAAAcwDYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T00:09:18.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:09:18.358Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Views\\PrintOrders\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\PrintOrders\\Index.cshtml",
@@ -495,25 +469,11 @@
               "RelativeToolTip": "Views\\PrintOrders\\Index.cshtml",
               "ViewState": "AgIAAB0AAAAAAAAAAAAcwCoAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T00:11:28.148Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:11:28.148Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ProductionConsumedItem.cs",
-              "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\ProductionConsumedItem.cs",
-              "RelativeDocumentMoniker": "Models\\ProductionConsumedItem.cs",
-              "ToolTip": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\ProductionConsumedItem.cs",
-              "RelativeToolTip": "Models\\ProductionConsumedItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T22:56:10.387Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Views\\PrintOrders\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\PrintOrders\\Edit.cshtml",
@@ -521,12 +481,11 @@
               "RelativeToolTip": "Views\\PrintOrders\\Edit.cshtml",
               "ViewState": "AgIAAAIAAAAAAAAAAAAcwBIAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T00:11:11.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:11:11.204Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Views\\PrintOrders\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\PrintOrders\\Details.cshtml",
@@ -534,12 +493,11 @@
               "RelativeToolTip": "Views\\PrintOrders\\Details.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAcwA4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T00:10:44.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:10:44.451Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "MachineProductionsController.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Controllers\\MachineProductionsController.cs",
               "RelativeDocumentMoniker": "Controllers\\MachineProductionsController.cs",
@@ -547,12 +505,11 @@
               "RelativeToolTip": "Controllers\\MachineProductionsController.cs",
               "ViewState": "AgIAAHQAAAAAAAAAAAAcwIAAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T00:03:41.817Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:03:41.817Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "ReportsController.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Controllers\\ReportsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReportsController.cs",
@@ -560,12 +517,11 @@
               "RelativeToolTip": "Controllers\\ReportsController.cs",
               "ViewState": "AgIAAFYAAAAAAAAAAAAcwGYAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T00:05:27.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:05:27.586Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Views\\PrintOrders\\Delete.cshtml",
               "RelativeDocumentMoniker": "Views\\PrintOrders\\Delete.cshtml",
@@ -573,12 +529,11 @@
               "RelativeToolTip": "Views\\PrintOrders\\Delete.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAcwBwAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T00:10:30.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:10:30.212Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 31,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Views\\MachineProductions\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\MachineProductions\\Index.cshtml",
@@ -586,12 +541,11 @@
               "RelativeToolTip": "Views\\MachineProductions\\Index.cshtml",
               "ViewState": "AgIAABoAAAAAAAAAAAAcwCcAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T00:10:13.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:10:13.68Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 32,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Views\\PrintOrders\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\PrintOrders\\Create.cshtml",
@@ -599,12 +553,11 @@
               "RelativeToolTip": "Views\\PrintOrders\\Create.cshtml",
               "ViewState": "AgIAAAgAAAAAAAAAAAAcwBkAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T00:09:58.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:09:58.029Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 33,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Views\\MachineProductions\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\MachineProductions\\Details.cshtml",
@@ -612,12 +565,11 @@
               "RelativeToolTip": "Views\\MachineProductions\\Details.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAAAcwDAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T00:09:30.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:09:30.136Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 34,
               "Title": "PrintOrdersController.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Controllers\\PrintOrdersController.cs",
               "RelativeDocumentMoniker": "Controllers\\PrintOrdersController.cs",
@@ -625,12 +577,11 @@
               "RelativeToolTip": "Controllers\\PrintOrdersController.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAcwEgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T00:05:09.847Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T00:05:09.847Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 35,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\Models\\BaseEntity.cs",
               "RelativeDocumentMoniker": "Models\\BaseEntity.cs",
@@ -638,8 +589,7 @@
               "RelativeToolTip": "Models\\BaseEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T23:34:43.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T23:34:43.923Z"
             }
           ]
         }

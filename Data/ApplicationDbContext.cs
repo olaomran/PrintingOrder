@@ -24,15 +24,17 @@ namespace PrintingOrder.Data
         public DbSet<Models.PrintOrder> PrintOrders { get; set; }
         public DbSet<Models.PrintSignature> PrintSignatures { get; set; }
         public DbSet<Models.PrintOrderRequiredItem> PrintOrderRequiredItems { get; set; }
-        public DbSet<Models.ProductionConsumedItem> ProductionConsumedItems { get; set; }
         public DbSet<Models.MachineProduction> MachineProductions { get; set; }
+        public DbSet<Models.ProductionConsumedItem> ProductionConsumedItems { get; set; }
         public DbSet<Models.EmployeeProduction> EmployeeProductions { get; set; }
         public DbSet<Models.EmployeeProductionDetail> EmployeeProductionDetails { get; set; }
-        public DbSet<Models.DailyReport> DailyReports { get; set; }
-        public DbSet<Models.DailyReportItem> DailyReportItems { get; set; }
-
+        public ICollection<DeliveryToStore>? Deliveries { get; set; }
+        public ICollection<PrintOrderDelivery>? PrintOrderDeliveries { get; set; }
         public DbSet<Models.PaymentClaim>? PaymentClaims { get; set; }
         public DbSet<Models.PrintOrderCalimPayment>? PrintOrderCalimPayments { get; set; }
+
+        public DbSet<Models.DailyReport> DailyReports { get; set; }
+        public DbSet<Models.DailyReportItem> DailyReportItems { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,7 +42,7 @@ namespace PrintingOrder.Data
             base.OnModelCreating(modelBuilder);
 
 
-           
+
 
 
             modelBuilder.Entity<Models.EmployeeProduction>()
@@ -48,10 +50,10 @@ namespace PrintingOrder.Data
             .HasColumnType("nvarchar(max)");
 
 
-            
 
 
-            
+
+
         }
     }
 }

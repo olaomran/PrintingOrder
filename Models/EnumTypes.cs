@@ -19,7 +19,7 @@ namespace PrintingOrder.Models
     public enum PrintOrderType { Commerical, School}
 
     public enum PrintOrderLevel {
-        [Display(Name = "ملزمة كاملة")]
+        [Display(Name = "لم يبدأ")]
         NotStarted ,
         [Display(Name = "طور الطباعة")]
         Printing,
@@ -28,7 +28,7 @@ namespace PrintingOrder.Models
         [Display(Name = "طور الطباعة والتجليد")]
         PrintingAndBinding,
         [Display(Name = "في المستودع")]
-        AtStore,
+        DeliveredToStore,
         [Display(Name = "مطالب")] 
         Claimed,
         [Display(Name = "مسدد")]
