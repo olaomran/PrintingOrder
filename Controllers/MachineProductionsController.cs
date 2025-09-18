@@ -84,11 +84,11 @@ namespace PrintingOrder.Controllers
                 }
 
                 // حساب عدد النسخ
-                var machine = await _context.Machines.FindAsync(production.MachineId);
-                if (machine.Name == "4 لون 70×100" || machine.Name == "4 لون 70×50")
-                    production.ProducedCopies = (production.PressRuns * 8) / printOrder.PagesCount;
-                else
-                    production.ProducedCopies = (production.PressRuns * 16) / printOrder.PagesCount;
+                //var machine = await _context.Machines.FindAsync(production.MachineId);
+                //if (machine.Name == "4 لون 70×100" || machine.Name == "4 لون 70×50")
+                //    production.ProducedCopies = (production.PressRuns * 8) / printOrder.PagesCount;
+                //else
+                //    production.ProducedCopies = (production.PressRuns * 16) / printOrder.PagesCount;
 
                 // تحديث الكبسات المتبقية
                 printOrder.RemainingPressRuns -= production.PressRuns;
@@ -98,15 +98,15 @@ namespace PrintingOrder.Controllers
             {
                 // التحقق من النسخ المجلدة
                 var remaining = printOrder.CopiesCount - printOrder.FoldedCopies;
-                if (production.ProducedCopies > remaining)
-                {
-                    ModelState.AddModelError("CopiesProduced", $"عدد النسخ أكبر من المتبقي ({remaining})");
-                    ReloadViewBags();
-                    return View(production);
-                }
+                //if (production.ProducedCopies > remaining)
+                //{
+                //    ModelState.AddModelError("CopiesProduced", $"عدد النسخ أكبر من المتبقي ({remaining})");
+                //    ReloadViewBags();
+                //    return View(production);
+                //}
 
                 // تحديث النسخ المجلدة
-                printOrder.FoldedCopies += production.ProducedCopies;
+                //printOrder.FoldedCopies += production.ProducedCopies;
             }
 
             _context.Add(production);
@@ -126,8 +126,7 @@ namespace PrintingOrder.Controllers
                             {
                                 MachineProductionId = production.Id,
                                 EmployeeId = e.EmployeeId,
-                                ShiftsJson = string.Join(',', e.Shifts),
-                                BookletNumbersJson = string.Join(',', e.Booklets)
+                                Shifts = string.Join(',', e.Shifts),
                             };
                             _context.EmployeeProductions.Add(ep);
 

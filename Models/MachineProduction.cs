@@ -8,6 +8,7 @@
         public int PrintOrderId { get; set; }
         public PrintOrder? PrintOrder { get; set; }
 
+
         [Display(Name = "الآلة")]
         public int MachineId { get; set; }
         public Machine? Machine { get; set; }
@@ -25,8 +26,8 @@
         [Display(Name = "عدد الكبسات")]
         public int PressRuns { get; set; }
 
-        [Display(Name = "كمية النسخ")]
-        public int ProducedCopies { get; set; }
+        //[Display(Name = "كمية النسخ")]
+        //public int ProducedCopies { get; set; }
 
         [Display(Name = "الموظفين المنفذين")]
         public ICollection<EmployeeProduction>? EmployeeProductions { get; set; }

@@ -224,6 +224,99 @@ namespace PrintingOrder.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("PrintingOrder.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StoreId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StoreId");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Customer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Customers");
+                });
+
             modelBuilder.Entity("PrintingOrder.Models.DailyReport", b =>
                 {
                     b.Property<int>("Id")
@@ -238,11 +331,29 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<string>("CreatorUserId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ProductionManagerNotes")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ReportDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -290,6 +401,58 @@ namespace PrintingOrder.Data.Migrations
                     b.ToTable("DailyReportItems");
                 });
 
+            modelBuilder.Entity("PrintingOrder.Models.Delegate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FatherName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nickname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Delegates");
+                });
+
             modelBuilder.Entity("PrintingOrder.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
@@ -304,11 +467,26 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<string>("CreatorUserId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FatherName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nickname")
@@ -318,6 +496,9 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<string>("Notes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -332,20 +513,41 @@ namespace PrintingOrder.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("BookletNumbersJson")
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EmployeeId")
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MachineProductionId")
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("MachineProductionId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShiftsJson")
+                    b.Property<string>("Shifts")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -354,6 +556,122 @@ namespace PrintingOrder.Data.Migrations
                     b.HasIndex("MachineProductionId");
 
                     b.ToTable("EmployeeProductions");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.EmployeeProductionDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookSignatureId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmployeeProductionId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PrintSignatureId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PrintedQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeProductionId");
+
+                    b.HasIndex("PrintSignatureId");
+
+                    b.ToTable("EmployeeProductionDetails");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("Quantity")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("SubOrder")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UnitId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UnitId");
+
+                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("PrintingOrder.Models.Machine", b =>
@@ -370,6 +688,21 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<string>("CreatorUserId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -379,6 +712,9 @@ namespace PrintingOrder.Data.Migrations
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -399,11 +735,26 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<string>("CreatorUserId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("Hours")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<int>("MachineId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
@@ -414,7 +765,7 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<int>("PrintOrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProducedCopies")
+                    b.Property<int?>("PrintSignatureId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ProductionDate")
@@ -423,13 +774,79 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<int>("Section")
                         .HasColumnType("int");
 
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MachineId");
 
                     b.HasIndex("PrintOrderId");
 
+                    b.HasIndex("PrintSignatureId");
+
                     b.ToTable("MachineProductions");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PaymentClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("ClaimDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ClaimNotes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ClaimNumber")
+                        .HasColumnType("int");
+
+                    b.Property<long>("ClaimValue")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("Paid")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long?>("PaymentValue")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("PaymentsNotes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentClaims");
                 });
 
             modelBuilder.Entity("PrintingOrder.Models.PrintOrder", b =>
@@ -439,6 +856,9 @@ namespace PrintingOrder.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("AgreedDeliveryDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("CompletedPressRuns")
                         .HasColumnType("int");
@@ -456,8 +876,20 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<string>("CreatorUserId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("DelegateId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Details")
                         .HasColumnType("nvarchar(max)");
@@ -465,8 +897,20 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<int>("FoldedCopies")
                         .HasColumnType("int");
 
-                    b.Property<int>("MachineType")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("IntryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IntryNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
@@ -475,29 +919,456 @@ namespace PrintingOrder.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OrderYear")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("PagesCount")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("PartyBookDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PartyBookNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PrintName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RemainingPressRuns")
+                    b.Property<int>("PrintOrderLevel")
                         .HasColumnType("int");
 
-                    b.Property<string>("Size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PrintOrderType")
+                        .HasColumnType("int");
 
-                    b.Property<int>("TotalBooklets")
+                    b.Property<decimal>("PrintSignatureCount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("PrintSizeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RemainingPressRuns")
                         .HasColumnType("int");
 
                     b.Property<int>("TotalPressRuns")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("TotalPrintSignatureCount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("isClaimed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isPaied")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("DelegateId");
+
+                    b.HasIndex("PrintSizeId");
+
                     b.ToTable("PrintOrders");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintOrderCalimPayment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimNotes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("ClaimedValue")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("Paid")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("PartNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PaymentClaimId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long?>("PaymentValue")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("PaymentsNotes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PrintOrderId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PaymentClaimId");
+
+                    b.HasIndex("PrintOrderId");
+
+                    b.ToTable("PrintOrderCalimPayments");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintOrderRequiredItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PrintOrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("RequiredAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.HasIndex("PrintOrderId");
+
+                    b.ToTable("PrintOrderRequiredItems");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintSignature", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CompletedQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PagesCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PrintOrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RemainingQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RequiredQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SignatureOrder")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("SignaturePart")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SignatureStatus")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("WholeSignature")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PrintOrderId");
+
+                    b.ToTable("PrintSignatures");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintSize", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Height")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Width")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PrintSizes");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.ProductionConsumedItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("ConsumedAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Justification")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MachineProductionId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isDamaging")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isSaving")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.HasIndex("MachineProductionId");
+
+                    b.ToTable("ProductionConsumedItems");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Store", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Stores");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Unit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ItemsInUnit")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StoreId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UnitId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StoreId");
+
+                    b.HasIndex("UnitId");
+
+                    b.ToTable("Units");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -551,6 +1422,15 @@ namespace PrintingOrder.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PrintingOrder.Models.Category", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.Store", "Store")
+                        .WithMany("Categories")
+                        .HasForeignKey("StoreId");
+
+                    b.Navigation("Store");
+                });
+
             modelBuilder.Entity("PrintingOrder.Models.DailyReportItem", b =>
                 {
                     b.HasOne("PrintingOrder.Models.DailyReport", "DailyReport")
@@ -574,19 +1454,49 @@ namespace PrintingOrder.Data.Migrations
                 {
                     b.HasOne("PrintingOrder.Models.Employee", "Employee")
                         .WithMany("EmployeeProductions")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeId");
 
                     b.HasOne("PrintingOrder.Models.MachineProduction", "MachineProduction")
                         .WithMany("EmployeeProductions")
-                        .HasForeignKey("MachineProductionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MachineProductionId");
 
                     b.Navigation("Employee");
 
                     b.Navigation("MachineProduction");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.EmployeeProductionDetail", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.EmployeeProduction", "EmployeeProduction")
+                        .WithMany("EmployeeProductionDetail")
+                        .HasForeignKey("EmployeeProductionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PrintingOrder.Models.PrintSignature", "PrintSignature")
+                        .WithMany()
+                        .HasForeignKey("PrintSignatureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EmployeeProduction");
+
+                    b.Navigation("PrintSignature");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Item", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.Category", "Category")
+                        .WithMany("Items")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("PrintingOrder.Models.Unit", "Unit")
+                        .WithMany("Items")
+                        .HasForeignKey("UnitId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Unit");
                 });
 
             modelBuilder.Entity("PrintingOrder.Models.MachineProduction", b =>
@@ -603,9 +1513,123 @@ namespace PrintingOrder.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("PrintingOrder.Models.PrintSignature", null)
+                        .WithMany("MachineProductions")
+                        .HasForeignKey("PrintSignatureId");
+
                     b.Navigation("Machine");
 
                     b.Navigation("PrintOrder");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintOrder", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.Customer", "Customer")
+                        .WithMany("PrintingOrders")
+                        .HasForeignKey("CustomerId");
+
+                    b.HasOne("PrintingOrder.Models.Delegate", "Delegate")
+                        .WithMany("PrintOrders")
+                        .HasForeignKey("DelegateId");
+
+                    b.HasOne("PrintingOrder.Models.PrintSize", "Size")
+                        .WithMany("PrintOrders")
+                        .HasForeignKey("PrintSizeId");
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Delegate");
+
+                    b.Navigation("Size");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintOrderCalimPayment", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.PaymentClaim", "PaymentClaim")
+                        .WithMany("PrintOrderPayments")
+                        .HasForeignKey("PaymentClaimId");
+
+                    b.HasOne("PrintingOrder.Models.PrintOrder", "PrintOrder")
+                        .WithMany("PrintOrderPayments")
+                        .HasForeignKey("PrintOrderId");
+
+                    b.Navigation("PaymentClaim");
+
+                    b.Navigation("PrintOrder");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintOrderRequiredItem", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.Item", "Item")
+                        .WithMany("RequiredItems")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PrintingOrder.Models.PrintOrder", "PrintOrder")
+                        .WithMany("requiredItems")
+                        .HasForeignKey("PrintOrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Item");
+
+                    b.Navigation("PrintOrder");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintSignature", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.PrintOrder", "PrintOrder")
+                        .WithMany("bookGatherings")
+                        .HasForeignKey("PrintOrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PrintOrder");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.ProductionConsumedItem", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PrintingOrder.Models.MachineProduction", "MachineProduction")
+                        .WithMany()
+                        .HasForeignKey("MachineProductionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Item");
+
+                    b.Navigation("MachineProduction");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Unit", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.Store", "Store")
+                        .WithMany()
+                        .HasForeignKey("StoreId");
+
+                    b.HasOne("PrintingOrder.Models.Unit", "SubUnit")
+                        .WithMany("FatherUnit")
+                        .HasForeignKey("UnitId");
+
+                    b.Navigation("Store");
+
+                    b.Navigation("SubUnit");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Category", b =>
+                {
+                    b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Customer", b =>
+                {
+                    b.Navigation("PrintingOrders");
                 });
 
             modelBuilder.Entity("PrintingOrder.Models.DailyReport", b =>
@@ -613,9 +1637,24 @@ namespace PrintingOrder.Data.Migrations
                     b.Navigation("Items");
                 });
 
+            modelBuilder.Entity("PrintingOrder.Models.Delegate", b =>
+                {
+                    b.Navigation("PrintOrders");
+                });
+
             modelBuilder.Entity("PrintingOrder.Models.Employee", b =>
                 {
                     b.Navigation("EmployeeProductions");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.EmployeeProduction", b =>
+                {
+                    b.Navigation("EmployeeProductionDetail");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Item", b =>
+                {
+                    b.Navigation("RequiredItems");
                 });
 
             modelBuilder.Entity("PrintingOrder.Models.Machine", b =>
@@ -628,9 +1667,42 @@ namespace PrintingOrder.Data.Migrations
                     b.Navigation("EmployeeProductions");
                 });
 
+            modelBuilder.Entity("PrintingOrder.Models.PaymentClaim", b =>
+                {
+                    b.Navigation("PrintOrderPayments");
+                });
+
             modelBuilder.Entity("PrintingOrder.Models.PrintOrder", b =>
                 {
                     b.Navigation("MachineProductions");
+
+                    b.Navigation("PrintOrderPayments");
+
+                    b.Navigation("bookGatherings");
+
+                    b.Navigation("requiredItems");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintSignature", b =>
+                {
+                    b.Navigation("MachineProductions");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.PrintSize", b =>
+                {
+                    b.Navigation("PrintOrders");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Store", b =>
+                {
+                    b.Navigation("Categories");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.Unit", b =>
+                {
+                    b.Navigation("FatherUnit");
+
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

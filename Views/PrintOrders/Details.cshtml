@@ -10,12 +10,12 @@
     <h4>PrintOrder</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        @* <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.MachineType)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.MachineType)
-        </dd>
+        </dd> *@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PrintName)
         </dt>
@@ -53,10 +53,10 @@
             @Html.DisplayFor(model => model.PagesCount)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalBooklets)
+            @Html.DisplayNameFor(model => model.TotalPrintSignatureCount)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalBooklets)
+            @Html.DisplayFor(model => model.TotalPrintSignatureCount)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.TotalPressRuns)

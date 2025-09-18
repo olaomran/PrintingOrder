@@ -59,18 +59,18 @@ namespace PrintingOrder.Controllers
         private void CalculateFields(PrintOrder order)
         {
            
-            order.TotalBooklets = (order.PagesCount / 16) * order.CopiesCount;
+            order.TotalPrintSignatureCount = (order.PagesCount / 16) * order.CopiesCount;
 
             
-            if (order.MachineType == MachineType.Offset4Color)
-            {
-                // Offset4Color
-                order.TotalPressRuns = order.TotalBooklets / 2;
-            }
-            else
-            {
-                order.TotalPressRuns = order.TotalBooklets;
-            }
+            //if (order.MachineType == MachineType.Offset4Color)
+            //{
+            //    // Offset4Color
+            //    order.TotalPressRuns = order.TotalPrintSignatureCount / 2;
+            //}
+            //else
+            //{
+            //    order.TotalPressRuns = order.TotalPrintSignatureCount;
+            //}
 
             // initial values
             order.RemainingPressRuns = order.TotalPressRuns;

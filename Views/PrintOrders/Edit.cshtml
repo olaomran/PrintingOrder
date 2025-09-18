@@ -12,11 +12,11 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            @* <div class="form-group">
                 <label asp-for="MachineType" class="control-label"></label>
                 <select asp-for="MachineType" class="form-control"></select>
                 <span asp-validation-for="MachineType" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
                 <label asp-for="PrintName" class="control-label"></label>
                 <input asp-for="PrintName" class="form-control" />
@@ -48,9 +48,9 @@
                 <span asp-validation-for="PagesCount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TotalBooklets" class="control-label"></label>
-                <input asp-for="TotalBooklets" class="form-control" />
-                <span asp-validation-for="TotalBooklets" class="text-danger"></span>
+                <label asp-for="TotalPrintSignatureCount" class="control-label"></label>
+                <input asp-for="TotalPrintSignatureCount" class="form-control" />
+                <span asp-validation-for="TotalPrintSignatureCount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TotalPressRuns" class="control-label"></label>

@@ -42,19 +42,20 @@ namespace PrintingOrder.Controllers
                         Machine = g.Key,
                         TotalHours = (decimal?)g.Sum(p => p.Hours),
                         WorkedOrderNames = string.Join(", ", g.Select(p => p.PrintOrder.PrintName).Distinct()),
-                        ProducedCopiesPerOrderJson = System.Text.Json.JsonSerializer.Serialize(
-                            g.GroupBy(p => p.PrintOrder.PrintName)
-                             .ToDictionary(x => x.Key, x => x.Sum(p => p.ProducedCopies))
-                        ),
-                        ExecutorsWithShiftsJson = System.Text.Json.JsonSerializer.Serialize(
-                            g.SelectMany(p => p.EmployeeProductions)
-                             .Select(ep => new ExecutorViewModel
-                             {
-                                 Employee = ep.Employee.FirstName + " " + ep.Employee.Nickname,
-                                 Shifts = ep.ShiftsJson,
-                                 Booklets = ep.BookletNumbersJson
-                             }).ToList()
-                        ),
+                        //ProducedCopiesPerOrderJson = System.Text.Json.JsonSerializer.Serialize(
+                        //    g.GroupBy(p => p.PrintOrder.PrintName)
+                        //     .ToDictionary(x => x.Key, x => x.Sum(p => p.ProducedCopies))
+                        //)
+                        //,
+                        //ExecutorsWithShiftsJson = System.Text.Json.JsonSerializer.Serialize(
+                        //    g.SelectMany(p => p.EmployeeProductions)
+                        //     .Select(ep => new ExecutorViewModel
+                        //     {
+                        //         Employee = ep.Employee.FirstName + " " + ep.Employee.Nickname,
+                        //         Shifts = ep.ShiftsJson,
+                        //         Booklets = ep.BookletNumbersJson
+                        //     }).ToList()
+                        //),
                         AggregatedProductionNotes = string.Join(" | ", g.Where(p => !string.IsNullOrEmpty(p.Notes)).Select(p => p.Notes))
                     }).ToList()
             };
@@ -94,19 +95,19 @@ namespace PrintingOrder.Controllers
                         Machine = g.Key,
                         TotalHours = (decimal?)g.Sum(p => p.Hours),
                         WorkedOrderNames = string.Join(", ", g.Select(p => p.PrintOrder.PrintName).Distinct()),
-                        ProducedCopiesPerOrderJson = System.Text.Json.JsonSerializer.Serialize(
-                            g.GroupBy(p => p.PrintOrder.PrintName)
-                             .ToDictionary(x => x.Key, x => x.Sum(p => p.ProducedCopies))
-                        ),
-                        ExecutorsWithShiftsJson = System.Text.Json.JsonSerializer.Serialize(
-                            g.SelectMany(p => p.EmployeeProductions)
-                             .Select(ep => new ExecutorViewModel
-                             {
-                                 Employee = ep.Employee.FirstName + " " + ep.Employee.Nickname,
-                                 Shifts = ep.ShiftsJson,
-                                 Booklets = ep.BookletNumbersJson
-                             }).ToList()
-                        ),
+                        //ProducedCopiesPerOrderJson = System.Text.Json.JsonSerializer.Serialize(
+                        //    g.GroupBy(p => p.PrintOrder.PrintName)
+                        //     .ToDictionary(x => x.Key, x => x.Sum(p => p.ProducedCopies))
+                        //),
+                        //ExecutorsWithShiftsJson = System.Text.Json.JsonSerializer.Serialize(
+                        //    g.SelectMany(p => p.EmployeeProductions)
+                        //     .Select(ep => new ExecutorViewModel
+                        //     {
+                        //         Employee = ep.Employee.FirstName + " " + ep.Employee.Nickname,
+                        //         Shifts = ep.ShiftsJson,
+                        //         Booklets = ep.BookletNumbersJson
+                        //     }).ToList()
+                        //),
                         AggregatedProductionNotes = string.Join(" | ", g.Where(p => !string.IsNullOrEmpty(p.Notes)).Select(p => p.Notes))
                     }).ToList()
             };
