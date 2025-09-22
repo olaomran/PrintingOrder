@@ -40,6 +40,7 @@ namespace PrintingOrder.Models
 
         public int RemainingQuantity { set; get; }
 
+     
 
         //قيد الطباعة , منتهية , لم تبدأ 
         [Display(Name = "الحالة")]

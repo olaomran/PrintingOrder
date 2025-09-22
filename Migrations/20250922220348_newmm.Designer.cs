@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrintingOrder.Data;
 
 #nullable disable
 
-namespace PrintingOrder.Data.Migrations
+namespace PrintingOrder.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250922220348_newmm")]
+    partial class newmm
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -588,7 +591,7 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<string>("Shifts")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SignaturePrintMechanismSignatureStatus")
+                    b.Property<int>("SignaturePrintMechanismSignatureStatus")
                         .HasColumnType("int");
 
                     b.Property<bool?>("isModified")
@@ -739,7 +742,7 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("MachineType")
+                    b.Property<int>("MachineType")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedAt")

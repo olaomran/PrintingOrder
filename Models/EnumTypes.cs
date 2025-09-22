@@ -1,8 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace PrintingOrder.Models
 {
-    public enum MachineType { RollV30, RollV25, Offset8Color, Offset4Color }
+    public enum MachineType {
+
+        [Display(Name = "الأوفست")]
+        Offset,
+        [Display(Name = "الرول")]
+        Role,
+        [Display(Name = "الريزو")]
+        Rizo,
+        [Display(Name = "التيبو")]
+        Tipo,
+        [Display(Name = "التجليد")]
+        Folding
+    }
     public enum ProductionSection
     {
         Print,
@@ -15,6 +28,14 @@ namespace PrintingOrder.Models
     
     public enum SignatureStatus { NotStarted ,Pending, Done }
 
+    public enum SignaturePrintMechanism 
+    {
+        [Display(Name = "وجه وخلف")]
+        FaceAndBehind,
+        [Display(Name = "وجه فقط")]
+        OnlyFace
+    }
+
 
     public enum PrintOrderType {Commerical, School}
 
@@ -23,8 +44,12 @@ namespace PrintingOrder.Models
         NotStarted ,
         [Display(Name = "طور الطباعة")]
         Printing,
+        [Display(Name = "تم الطبع")]
+        PrintingDone,
         [Display(Name = "طور التجليد")]
         Binding,
+        [Display(Name = "تم التجليد")]
+        BindingDone,
         [Display(Name = "طور الطباعة والتجليد")]
         PrintingAndBinding,
         [Display(Name = "في المستودع")]

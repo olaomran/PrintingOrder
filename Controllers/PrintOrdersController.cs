@@ -177,10 +177,7 @@ namespace PrintingOrder.Controllers
         public IActionResult CreateSchool()
         {
             // جلب قياسات النموذج من قاعدة البيانات
-            var sizes = _context.PrintSizes.ToList();
-
-            ViewBag.PrintSizes = sizes;
-
+            ViewBag.PrintSizes = _context.PrintSizes.ToList();
             ViewBag.Stores = new SelectList(_context.Stores, "Id", "Name");
 
             return View(new SchoolPrintOrderCreateVM());
@@ -192,9 +189,8 @@ namespace PrintingOrder.Controllers
         public IActionResult Create()
         {
             // جلب قياسات النموذج من قاعدة البيانات
-            var sizes = _context.PrintSizes.ToList();
 
-            ViewBag.PrintSizes = sizes;
+            ViewBag.PrintSizes = _context.PrintSizes.ToList();
 
             ViewBag.Stores = new SelectList(_context.Stores, "Id", "Name");
             ViewBag.Customers = new SelectList(_context.Customers, "Id", "Name");
@@ -212,9 +208,12 @@ namespace PrintingOrder.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.PrintSizes = _context.PrintSizes.ToList();
                 ViewBag.Stores = new SelectList(_context.Stores, "Id", "Name");
+                
                 return View(vm);
             }
+
             else
             {
                 // التأكد من وجود "المؤسسة العامة للطباعة"
@@ -299,7 +298,10 @@ namespace PrintingOrder.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.PrintSizes =  _context.PrintSizes.ToList();
                 ViewBag.Stores = new SelectList(_context.Stores, "Id", "Name");
+                ViewBag.Customers = new SelectList(_context.Customers, "Id", "Name");
+                ViewBag.Delegates = new SelectList(_context.Delegates, "Id", "FirstName");
                 return View(vm);
             }
             else

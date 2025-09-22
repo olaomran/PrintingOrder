@@ -6,28 +6,37 @@
 
     <div class="card mb-4">
         <div class="card-header">بيانات أمر الطباعة</div>
+
         <div class="card-body row g-3">
+
+             <div asp-validation-summary="All" class="text-danger"></div>
+
             <div class="col-md-3">
                 <label asp-for="OrderNumber" class="form-label"></label>
                 <input asp-for="OrderNumber" class="form-control" />
+                <span asp-validate-for="OrderNumber" class="form-control" />
             </div>
             <div class="col-md-3">
                 <label asp-for="Date" class="form-label"></label>
                 <input asp-for="Date" type="date" class="form-control" />
+                <span asp-validate-for="Date" class="form-control" />
             </div>
             <div class="col-md-3">
                 <label asp-for="PrintName" class="form-label"></label>
                 <input asp-for="PrintName" class="form-control" />
+                <span asp-validate-for="PrintName" class="form-control" />
             </div>
             <div class="col-md-3">
                 <label asp-for="ContractNumber" class="form-label"></label>
                 <input asp-for="ContractNumber" class="form-control" />
+                <span asp-validate-for="ContractNumber" class="form-control" />
             </div>
 
             <!-- حقول جديدة -->
             <div class="col-md-3">
                 <label asp-for="CustomerId" class="form-label">العائدية</label>
                 <select asp-for="CustomerId" asp-items="ViewBag.Customers" class="form-control"></select>
+                <span asp-validate-for="CustomerId" class="form-control" />
             </div>
             <div class="col-md-3">
                 <label asp-for="IntryNumber" class="form-label">رقم الورود</label>
@@ -56,11 +65,13 @@
 
             <div class="col-md-3">
                 <label asp-for="CopiesCount" class="form-label"></label>
-                <input asp-for="CopiesCount" class="form-control" id="CopiesCount" />
+                <input asp-for="CopiesCount" type="number" min="1" class="form-control" id="CopiesCount" />
+                <span asp-validate-for="CopiesCount" class="form-control" />
             </div>
             <div class="col-md-3">
                 <label asp-for="PagesCount" class="form-label"></label>
-                <input asp-for="PagesCount" class="form-control" id="PagesCount" />
+                <input asp-for="PagesCount" type="number" min="1"  class="form-control" id="PagesCount" />
+                <span asp-validate-for="PagesCount" class="form-control" />
             </div>
             <div class="col-md-3">
                 <label asp-for="ManualSignatureCount" class="form-label">عدد الملازم للمطبوعة (يمكن التعديل)</label>

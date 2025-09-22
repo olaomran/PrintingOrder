@@ -13,5 +13,6 @@ namespace PrintingOrder.Models
 
         [DisplayName("الكمية المنجزة")]
         public int? PrintedQuantity { get; set; } // الكمية المطبوعة
+        
     }
 }

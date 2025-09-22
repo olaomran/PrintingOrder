@@ -6,6 +6,7 @@ namespace PrintingOrder.Models
     {
         [Required]
         public string Name { get; set; }
+        public MachineType? MachineType { get; set; }
         public string? Status { get; set; }
         public string? Notes { get; set; }
 
