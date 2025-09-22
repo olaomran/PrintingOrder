@@ -12,8 +12,8 @@ using PrintingOrder.Data;
 namespace PrintingOrder.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250922081221_newMigDBValidators")]
-    partial class newMigDBValidators
+    [Migration("20250922225639_newmignewDB")]
+    partial class newmignewDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -603,56 +603,6 @@ namespace PrintingOrder.Migrations
                     b.ToTable("EmployeeProductions");
                 });
 
-            modelBuilder.Entity("PrintingOrder.Models.EmployeeProductionDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("BookSignatureId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatorUserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DeletedUserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EmployeeProductionId")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ModifyUserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PrintedQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("isModified")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookSignatureId");
-
-                    b.HasIndex("EmployeeProductionId");
-
-                    b.ToTable("EmployeeProductionDetails");
-                });
-
             modelBuilder.Entity("PrintingOrder.Models.Item", b =>
                 {
                     b.Property<int>("Id")
@@ -738,6 +688,9 @@ namespace PrintingOrder.Migrations
 
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<int?>("MachineType")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
@@ -1249,6 +1202,9 @@ namespace PrintingOrder.Migrations
                     b.Property<decimal?>("SignaturePart")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int?>("SignaturePrintMechanismSignatureStatus")
+                        .HasColumnType("int");
+
                     b.Property<int>("SignatureStatus")
                         .HasColumnType("int");
 
@@ -1369,6 +1325,56 @@ namespace PrintingOrder.Migrations
                     b.HasIndex("MachineProductionId");
 
                     b.ToTable("ProductionConsumedItems");
+                });
+
+            modelBuilder.Entity("PrintingOrder.Models.ProductionSignatureDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MachineProductionId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifyUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PrintSignatureId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PrintedQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("isModified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MachineProductionId");
+
+                    b.HasIndex("PrintSignatureId");
+
+                    b.ToTable("EmployeeProductionDetails");
                 });
 
             modelBuilder.Entity("PrintingOrder.Models.Store", b =>
@@ -1566,23 +1572,6 @@ namespace PrintingOrder.Migrations
                     b.Navigation("MachineProduction");
                 });
 
-            modelBuilder.Entity("PrintingOrder.Models.EmployeeProductionDetail", b =>
-                {
-                    b.HasOne("PrintingOrder.Models.PrintSignature", "PrintSignature")
-                        .WithMany("EmployeeProductionDetails")
-                        .HasForeignKey("BookSignatureId");
-
-                    b.HasOne("PrintingOrder.Models.EmployeeProduction", "EmployeeProduction")
-                        .WithMany("EmployeeProductionDetail")
-                        .HasForeignKey("EmployeeProductionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("EmployeeProduction");
-
-                    b.Navigation("PrintSignature");
-                });
-
             modelBuilder.Entity("PrintingOrder.Models.Item", b =>
                 {
                     b.HasOne("PrintingOrder.Models.Category", "Category")
@@ -1719,6 +1708,25 @@ namespace PrintingOrder.Migrations
                     b.Navigation("MachineProduction");
                 });
 
+            modelBuilder.Entity("PrintingOrder.Models.ProductionSignatureDetail", b =>
+                {
+                    b.HasOne("PrintingOrder.Models.MachineProduction", "MachineProduction")
+                        .WithMany("ProductionSignatureList")
+                        .HasForeignKey("MachineProductionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PrintingOrder.Models.PrintSignature", "PrintSignature")
+                        .WithMany("SignatureProductionsList")
+                        .HasForeignKey("PrintSignatureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MachineProduction");
+
+                    b.Navigation("PrintSignature");
+                });
+
             modelBuilder.Entity("PrintingOrder.Models.Unit", b =>
                 {
                     b.HasOne("PrintingOrder.Models.Store", "Store")
@@ -1764,11 +1772,6 @@ namespace PrintingOrder.Migrations
                     b.Navigation("EmployeeProductions");
                 });
 
-            modelBuilder.Entity("PrintingOrder.Models.EmployeeProduction", b =>
-                {
-                    b.Navigation("EmployeeProductionDetail");
-                });
-
             modelBuilder.Entity("PrintingOrder.Models.Item", b =>
                 {
                     b.Navigation("RequiredItems");
@@ -1784,6 +1787,8 @@ namespace PrintingOrder.Migrations
                     b.Navigation("EmployeeProductions");
 
                     b.Navigation("ProductionConsumedItems");
+
+                    b.Navigation("ProductionSignatureList");
                 });
 
             modelBuilder.Entity("PrintingOrder.Models.PaymentClaim", b =>
@@ -1806,7 +1811,7 @@ namespace PrintingOrder.Migrations
 
             modelBuilder.Entity("PrintingOrder.Models.PrintSignature", b =>
                 {
-                    b.Navigation("EmployeeProductionDetails");
+                    b.Navigation("SignatureProductionsList");
                 });
 
             modelBuilder.Entity("PrintingOrder.Models.PrintSize", b =>

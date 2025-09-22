@@ -1,5 +1,6 @@
 ﻿namespace PrintingOrder.Models
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public class MachineProduction : BaseEntity
@@ -39,10 +40,16 @@
         [Display(Name = "الموظفين المنفذين")]
         public ICollection<EmployeeProduction>? EmployeeProductions { get; set; }
 
+        [Display(Name = "الملازم المنجزة وكمياتها")]
+
+        public ICollection<ProductionSignatureDetail>? ProductionSignatureList { get; set; }
+
+
 
         [Display(Name = "الكميات المستهلكة")]
         public ICollection<ProductionConsumedItem>? ProductionConsumedItems { get; set; }
 
+        
     }
 
 }

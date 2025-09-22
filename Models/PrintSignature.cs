@@ -40,14 +40,20 @@ namespace PrintingOrder.Models
 
         public int RemainingQuantity { set; get; }
 
-     
+
+        //وجه وخلف ام وجه فقط
+
+        [Display(Name = "طريقة الطباعة")]
+        public SignaturePrintMechanism? SignaturePrintMechanismSignatureStatus { get; set; } = SignaturePrintMechanism.FaceAndBehind;
+
 
         //قيد الطباعة , منتهية , لم تبدأ 
         [Display(Name = "الحالة")]
         public SignatureStatus SignatureStatus { get; set; } = SignatureStatus.NotStarted;
 
 
-        public ICollection<EmployeeProductionDetail>? EmployeeProductionDetails { get; set; }
+
+        public ICollection<ProductionSignatureDetail>? SignatureProductionsList { get; set; }
 
 
     }

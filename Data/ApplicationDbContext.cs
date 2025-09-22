@@ -27,7 +27,7 @@ namespace PrintingOrder.Data
         public DbSet<Models.MachineProduction> MachineProductions { get; set; }
         public DbSet<Models.ProductionConsumedItem> ProductionConsumedItems { get; set; }
         public DbSet<Models.EmployeeProduction> EmployeeProductions { get; set; }
-        public DbSet<Models.EmployeeProductionDetail> EmployeeProductionDetails { get; set; }
+        public DbSet<Models.ProductionSignatureDetail> EmployeeProductionDetails { get; set; }
         public ICollection<DeliveryToStore>? Deliveries { get; set; }
         public ICollection<PrintOrderDelivery>? PrintOrderDeliveries { get; set; }
         public DbSet<Models.PaymentClaim>? PaymentClaims { get; set; }
@@ -47,37 +47,7 @@ namespace PrintingOrder.Data
 
             
 
-            // PrintOrder مع PrintSignature
-            modelBuilder.Entity<PrintSignature>()
-                .HasOne(ps => ps.PrintOrder)
-                .WithMany(po => po.PrintSignatures)
-                .HasForeignKey(ps => ps.PrintOrderId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // MachineProduction مع PrintOrder
-            modelBuilder.Entity<MachineProduction>()
-                .HasOne(mp => mp.PrintOrder)
-                .WithMany(po => po.MachineProductions)
-                .HasForeignKey(mp => mp.PrintOrderId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // EmployeeProductionDetail مع PrintSignature
-            modelBuilder.Entity<EmployeeProductionDetail>()
-                .HasOne(ed => ed.PrintSignature)
-                .WithMany(ps => ps.EmployeeProductionDetails)
-                .HasForeignKey(ed => ed.BookSignatureId);
-
-            // Item مع Category
-            modelBuilder.Entity<Item>()
-                .HasOne(i => i.Category)
-                .WithMany(c => c.Items)
-                .HasForeignKey(i => i.CategoryId);
-
-            // Item مع Unit
-            modelBuilder.Entity<Item>()
-                .HasOne(i => i.Unit)
-                .WithMany(u => u.Items)
-                .HasForeignKey(i => i.UnitId);
+            
 
 
 
