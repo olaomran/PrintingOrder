@@ -442,7 +442,6 @@ namespace PrintingOrder.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("isModified")
@@ -636,9 +635,6 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<string>("ModifyUserId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PrintSignatureId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("PrintedQuantity")
                         .HasColumnType("int");
 
@@ -647,9 +643,9 @@ namespace PrintingOrder.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeProductionId");
+                    b.HasIndex("BookSignatureId");
 
-                    b.HasIndex("PrintSignatureId");
+                    b.HasIndex("EmployeeProductionId");
 
                     b.ToTable("EmployeeProductionDetails");
                 });
@@ -680,6 +676,9 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("ItemOrder")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
 
@@ -692,9 +691,6 @@ namespace PrintingOrder.Data.Migrations
 
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Order")
-                        .HasColumnType("int");
 
                     b.Property<decimal?>("Quantity")
                         .HasColumnType("decimal(18,2)");
@@ -918,6 +914,7 @@ namespace PrintingOrder.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CustomerId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -990,6 +987,7 @@ namespace PrintingOrder.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("PrintSizeId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int>("RemainingPressRuns")
@@ -1284,8 +1282,8 @@ namespace PrintingOrder.Data.Migrations
                     b.Property<string>("DeletedUserId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Height")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Height")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
@@ -1300,8 +1298,8 @@ namespace PrintingOrder.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Width")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Width")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool?>("isModified")
                         .HasColumnType("bit");
@@ -1567,15 +1565,15 @@ namespace PrintingOrder.Data.Migrations
 
             modelBuilder.Entity("PrintingOrder.Models.EmployeeProductionDetail", b =>
                 {
+                    b.HasOne("PrintingOrder.Models.PrintSignature", "PrintSignature")
+                        .WithMany("EmployeeProductionDetails")
+                        .HasForeignKey("BookSignatureId");
+
                     b.HasOne("PrintingOrder.Models.EmployeeProduction", "EmployeeProduction")
                         .WithMany("EmployeeProductionDetail")
                         .HasForeignKey("EmployeeProductionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("PrintingOrder.Models.PrintSignature", "PrintSignature")
-                        .WithMany("EmployeeProductionDetails")
-                        .HasForeignKey("PrintSignatureId");
 
                     b.Navigation("EmployeeProduction");
 
@@ -1618,7 +1616,9 @@ namespace PrintingOrder.Data.Migrations
                 {
                     b.HasOne("PrintingOrder.Models.Customer", "Customer")
                         .WithMany("PrintingOrders")
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("PrintingOrder.Models.Delegate", "Delegate")
                         .WithMany("PrintOrders")
@@ -1626,7 +1626,9 @@ namespace PrintingOrder.Data.Migrations
 
                     b.HasOne("PrintingOrder.Models.PrintSize", "Size")
                         .WithMany("PrintOrders")
-                        .HasForeignKey("PrintSizeId");
+                        .HasForeignKey("PrintSizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
 

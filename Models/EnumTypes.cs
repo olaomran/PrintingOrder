@@ -16,7 +16,7 @@ namespace PrintingOrder.Models
     public enum SignatureStatus { NotStarted ,Pending, Done }
 
 
-    public enum PrintOrderType { Commerical, School}
+    public enum PrintOrderType {Commerical, School}
 
     public enum PrintOrderLevel {
         [Display(Name = "لم يبدأ")]

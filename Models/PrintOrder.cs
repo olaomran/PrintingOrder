@@ -13,26 +13,27 @@ namespace PrintingOrder.Models
         }
 
 
-        [Required]
+
         [Display(Name = "رقم أمر العمل")]
+        [Required(ErrorMessage = "رقم أمر العمل مطلوب")]
         public string OrderNumber
         {
             get; set;
         }
 
 
-        [Required]
+        [Required(ErrorMessage = "اسم المطبوعة مطلوب")]
         [Display(Name = "اسم المطبوعة")]
         public string PrintName { get; set; }
 
 
 
-        [Required]
+        [Required(ErrorMessage = "التاريخ مطلوب")]
         [Display(Name = "التاريخ")]
         public DateTime Date { get; set; }
 
 
-        [Required]
+        [Required(ErrorMessage = "رقم العقد مطلوب")]
         [Display(Name = "رقم العقد")]
         public string ContractNumber { get; set; }
 
@@ -44,7 +45,7 @@ namespace PrintingOrder.Models
 
 
 
-        
+
         [Display(Name = "رقم الورود")]
         public string? IntryNumber { get; set; }
 
@@ -62,6 +63,9 @@ namespace PrintingOrder.Models
         [Display(Name = "التاريخ المتفق عليه للتسليم")]
         public DateTime? AgreedDeliveryDate { get; set; }
 
+
+        [Required(ErrorMessage = "يجب اختيار العائدية")]
+
         [Display(Name = "العائدية")]
         public int? CustomerId { get; set; }
         public Customer? Customer { get; set; }
@@ -71,12 +75,14 @@ namespace PrintingOrder.Models
         public int? DelegateId { get; set; }
         public Delegate? Delegate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "عدد النسخ مطلوب")]
+        [Range(1, int.MaxValue, ErrorMessage = "أدخل رقم صحيح أكبر من 0")]
         [Display(Name = " عدد النسخ المطلوبة")]
         public int CopiesCount { get; set; }
 
 
-        [Required]
+        [Required(ErrorMessage = "عدد الصفحات مطلوب")]
+        [Range(1, int.MaxValue, ErrorMessage = "أدخل رقم صحيح أكبر من 0")]
         [Display(Name = "عدد صفحات المطبوعة")]
         public int PagesCount { get; set; }
 
@@ -111,10 +117,11 @@ namespace PrintingOrder.Models
         [Display(Name = "عدد النسخ المُسلمة للمستودع ")]
         public int DeliveriedCopiesToStore { get; set; } = 0; // عدد النسخ المُسلمة، يبدأ بـ0
 
+        [Required(ErrorMessage = "يجب اختيار القياس")]
         [Display(Name = "قياس النموذج")]
-        public int? PrintSizeId  { get; set; }   
-        public PrintSize? Size { get; set; } 
-  
+        public int? PrintSizeId { get; set; }
+        public PrintSize? Size { get; set; }
+
 
         [Display(Name = "ملاحظات")]
         public string? Notes { get; set; }
@@ -128,11 +135,11 @@ namespace PrintingOrder.Models
 
         [Display(Name = "مطالب ")]
         public bool isClaimed { get; set; } = false;
-    
+
         [Display(Name = "مسددة")]
         public bool isPaied { get; set; } = false;
 
-        
+
 
         public ICollection<PrintSignature>? PrintSignatures { get; set; }
 
@@ -143,7 +150,7 @@ namespace PrintingOrder.Models
         public ICollection<PrintOrderDelivery>? PrintOrderDeliveries { get; set; }
         public ICollection<PrintOrderCalimPayment>? PrintOrderPayments { get; set; }
 
-        
+
 
 
     }

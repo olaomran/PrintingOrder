@@ -1,0 +1,88 @@
+﻿@using PrintingOrder.ViewModels
+@model CreatePrintOrderViewModel
+
+<form asp-action="CreateSchoolBook" method="post">
+    <div>
+        <label>رقم أمر العمل</label>
+        <input asp-for="OrderNumber" class="form-control" />
+    </div>
+    <div>
+        <label>تاريخ</label>
+        <input asp-for="Date" type="date" class="form-control" />
+    </div>
+    <div>
+        <label>اسم المطبوعة</label>
+        <input asp-for="PrintName" class="form-control" />
+    </div>
+    <div>
+        <label>عدد الصفحات</label>
+        <input asp-for="PagesCount" id="pagesCount" class="form-control" />
+    </div>
+    <div>
+        <label>عدد النسخ</label>
+        <input asp-for="CopiesCount" id="copiesCount" class="form-control" />
+    </div>
+
+    <h4>جدول الملازم</h4>
+    <table id="signaturesTable" class="table">
+        <thead>
+            <tr>
+                <th>رقم الملزمة</th>
+                <th>جزء</th>
+                <th>الكمية المطلوبة</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h4>المواد المطلوبة</h4>
+    <div>
+        <select id="itemSelect"></select>
+        <input type="number" id="itemQty" />
+        <button type="button" id="addItem">إضافة مادة</button>
+    </div>
+    <table id="itemsTable" class="table">
+        <thead>
+            <tr>
+                <th>المادة</th>
+                <th>الكمية</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">حفظ</button>
+</form>
+
+<script>
+    function recalc() {
+        let pages = parseFloat(document.getElementById("pagesCount").value) || 0;
+        let copies = parseInt(document.getElementById("copiesCount").value) || 0;
+
+        let sigPerBook = (pages / 16).toFixed(2);
+        let totalSigs = (sigPerBook * copies).toFixed(2);
+
+        let integerPart = Math.floor(sigPerBook);
+        let fractionPart = sigPerBook - integerPart;
+
+        let tbody = document.querySelector("#signaturesTable tbody");
+        tbody.innerHTML = "";
+
+        for (let i = 1; i <= integerPart; i++) {
+            tbody.innerHTML += `<tr><td>${i}</td><td>كاملة</td><td>${copies}</td></tr>`;
+        }
+        if (fractionPart > 0) {
+            tbody.innerHTML += `<tr><td>${integerPart + 1}</td><td>${fractionPart.toFixed(2)}</td><td>${copies}</td></tr>`;
+        }
+    }
+
+    document.getElementById("pagesCount").addEventListener("input", recalc);
+    document.getElementById("copiesCount").addEventListener("input", recalc);
+
+    document.getElementById("addItem").addEventListener("click", function () {
+        let item = document.getElementById("itemSelect").value;
+        let qty = document.getElementById("itemQty").value;
+        let tbody = document.querySelector("#itemsTable tbody");
+        tbody.innerHTML += `<tr><td>${item}</td><td>${qty}</td></tr>`;
+    });
+</script>

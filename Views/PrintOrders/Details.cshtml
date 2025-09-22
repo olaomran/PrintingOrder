@@ -1,114 +1,161 @@
-﻿@model PrintingOrder.Models.PrintOrder
+﻿@using PrintingOrder.Helper
+@model PrintingOrder.Models.PrintOrder
 
-@{
-    ViewData["Title"] = "Details";
-}
+<h2 class="mb-4">تفاصيل أمر التشغيل - @Model.PrintName</h2>
 
-<h1>Details</h1>
+<div class="card mb-4">
+    <div class="card-header">بيانات أمر التشغيل</div>
+    <div class="card-body row g-3">
+        <div class="col-md-3">
+            <strong>رقم أمر التشغيل:</strong> @Model.OrderNumber
+        </div>
+        <div class="col-md-3">
+            <strong>التاريخ:</strong> @Model.Date.ToString("yyyy-MM-dd")
+        </div>
+        <div class="col-md-3">
+            <strong>نوع الطباعة:</strong> 
 
-<div>
-    <h4>PrintOrder</h4>
-    <hr />
-    <dl class="row">
-        @* <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MachineType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MachineType)
-        </dd> *@
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrintName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrintName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ContractNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ContractNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CopiesCount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CopiesCount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PagesCount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PagesCount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalPrintSignatureCount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalPrintSignatureCount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalPressRuns)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalPressRuns)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RemainingPressRuns)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RemainingPressRuns)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompletedPressRuns)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompletedPressRuns)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Size)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Size)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Details)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Details)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatorUserId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatorUserId)
-        </dd>
-    </dl>
+                @if (Model.PrintOrderType == PrintOrderType.School)
+                {
+                    <span>كتاب مدرسي</span>
+                }
+                else
+                {
+                    <span>مطبوعة تجارية</span>
+
+                }
+        </div>
+        <div class="col-md-3">
+            <strong>العائدية:</strong> @Model.Customer?.Name
+        </div>
+        <div class="col-md-3">
+            <strong>المندوب:</strong> @Model.Delegate?.FirstName
+        </div>
+        <div class="col-md-3">
+            <strong>رقم الورود:</strong> @Model.IntryNumber
+        </div>
+        <div class="col-md-3">
+            <strong>تاريخ الورود:</strong> @(Model.IntryDate?.ToString("yyyy-MM-dd") ?? "-")
+        </div>
+        <div class="col-md-3">
+            <strong>رقم كتاب الجهة:</strong> @Model.PartyBookNumber
+        </div>
+        <div class="col-md-3">
+            <strong>تاريخ كتاب الجهة:</strong> @(Model.PartyBookDate?.ToString("yyyy-MM-dd") ?? "-")
+        </div>
+        <div class="col-md-3">
+            <strong>التاريخ المتفق عليه للتسليم:</strong> @(Model.AgreedDeliveryDate?.ToString("yyyy-MM-dd") ?? "-")
+        </div>
+        <div class="col-md-3">
+            <strong>عدد النسخ المطلوبة:</strong> @Model.CopiesCount.ToSeparated()
+        </div>
+        <div class="col-md-3">
+            <strong>عدد صفحات المطبوعة:</strong> @Model.PagesCount.ToSeparated()
+        </div>
+        <div class="col-md-3">
+            <strong>عدد الملازم للمطبوعة:</strong> @Model.PrintSignatureCount.ToSeparated()
+        </div>
+        <div class="col-md-3">
+            <strong>عدد الملازم الكلي:</strong> @Model.TotalPrintSignatureCount.ToSeparated()
+        </div>
+        <div class="col-md-3">
+            <strong>عدد الكبسات الكلي:</strong> @Model.TotalPressRuns.ToSeparated()
+        </div>
+        <div class="col-md-3">
+            <strong>عدد النسخ المجلدة:</strong> @Model.FoldedCopies.ToSeparated()
+        </div>
+        <div class="col-md-3">
+            <strong>قياس النموذج:</strong> @Model.Size?.Name
+        </div>
+        <div class="col-md-12">
+            <strong>ملاحظات:</strong> @Model.Notes
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="card mb-4">
+    <div class="card-header">الملازم المطلوبة</div>
+    <div class="card-body">
+        @if (Model.RequiredItems != null && Model.PrintSignatures.Any())
+        {
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>رقم الملزمة</th>
+                        <th>الملزمة كاملة</th>
+                        <th>عدد الصفحات</th>
+                        <th>الكمية المطلوبة</th>
+                        <th>الكمية المنجزة</th>
+                        <th>الكمية المتبقية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PrintSignatures)
+                    {
+                        <tr>
+                            <td>@item.SignatureOrder</td>
+                            <td>@item.PagesCount</td>
+                            <td>
+                                @if ((bool)item.WholeSignature)
+                                {
+                                    <span class="text-success">نعم</span>
+                                }
+                                else
+                                {
+                                    <span class="text-danger">لا - نسبة الجزء من الملزمة(@item.SignaturePart)</span> 
+
+                                }
+                            </td>
+                            <td>@item.RequiredQuantity.ToSeparated()</td>
+                            <td>@item.CompletedQuantity.ToSeparated()</td>
+                            <td>@item.RemainingQuantity.ToSeparated()</td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">لا توجد مواد مطلوبة لهذا الأمر.</p>
+        }
+    </div>
 </div>
+
+<div class="card mb-4">
+    <div class="card-header">جدول كميات المواد المطلوبة</div>
+    <div class="card-body">
+        @if (Model.RequiredItems != null && Model.RequiredItems.Any())
+        {
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>المستودع</th>
+                        <th>القسم</th>
+                        <th>المادة</th>
+                        <th>الكمية المطلوبة</th>
+                        <th>ملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.RequiredItems)
+                    {
+                        <tr>
+                            <td>@item.Item?.Category?.Store?.Name</td>
+                            <td>@item.Item?.Category?.Name</td>
+                            <td>@item.Item?.Name</td>
+                            <td>@item.RequiredAmount.ToSeparated()</td>
+                            <td>@item.Notes</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">لا توجد مواد مطلوبة لهذا الأمر.</p>
+        }
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">عودة إلى القائمة</a>

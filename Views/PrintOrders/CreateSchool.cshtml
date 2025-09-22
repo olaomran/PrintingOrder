@@ -1,0 +1,243 @@
+﻿@model PrintingOrder.ViewModels.SchoolPrintOrderCreateVM
+
+<h2 class="mb-4">إنشاء أمر طباعة كتاب مدرسي</h2>
+
+<form asp-action="CreateSchool" method="post" id="orderForm">
+
+    <div class="card mb-4">
+        <div class="card-header">بيانات أمر الطباعة</div>
+        <div class="card-body row">
+            <div class="col-md-3 mb-3">
+                <label asp-for="OrderNumber" class="form-label"></label>
+                <input asp-for="OrderNumber" class="form-control" />
+                <span asp-validate-for="OrderNumber" class="form-control" />
+            </div>
+            <div class="col-md-3 mb-3">
+                <label asp-for="Date" class="form-label"></label>
+                <input asp-for="Date" type="date" class="form-control" />
+            </div>
+            <div class="col-md-3 mb-3">
+                <label asp-for="PrintName" class="form-label"></label>
+                <input asp-for="PrintName" class="form-control" />
+            </div>
+            <div class="col-md-3 mb-3">
+                <label asp-for="ContractNumber" class="form-label"></label>
+                <input asp-for="ContractNumber" class="form-control" />
+            </div>
+            <div class="col-md-3 mb-3">
+                <label asp-for="CopiesCount" class="form-label"></label>
+                <input asp-for="CopiesCount" class="form-control" id="CopiesCount" />
+            </div>
+            <div class="col-md-3 mb-3">
+                <label asp-for="PagesCount" class="form-label"></label>
+                <input asp-for="PagesCount" class="form-control" id="PagesCount" />
+            </div>
+            <div class="col-md-3 mb-3">
+                <label asp-for="ManualSignatureCount" class="form-label">عدد الملازم للمطبوعة (يمكن التعديل)</label>
+                <input asp-for="ManualSignatureCount" class="form-control" id="ManualSignatureCount" />
+            </div>
+            <div class="col-md-3 mb-3">
+                <label asp-for="PrintSizeId" class="form-label">قياس النموذج</label>
+                <select asp-for="PrintSizeId" asp-items="@(new SelectList(ViewBag.PrintSizes, "Id", "Name"))" class="form-control"></select>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">الملخص</div>
+        <div class="card-body">
+            <p>عدد الملازم للمطبوعة: <span id="sigCount">-</span></p>
+            <p>عدد الملازم الكلي: <span id="totalSig">-</span></p>
+            <p>عدد الكبسات الكلي: <span id="totalPress">-</span></p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">جدول الملازم المطلوبة</div>
+        <div class="card-body">
+            <table class="table table-bordered mb-0" id="signaturesTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>رقم الملزمة</th>
+                        <th>ملزمة كاملة</th>
+                        <th>جزء الملزمة</th>
+                        <th>الكمية المطلوبة</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">جدول كميات المواد المطلوبة</div>
+        <div class="card-body">
+            <div class="row g-3 align-items-end mb-3">
+                <div class="col-md-3">
+                    <label>المستودع</label>
+                    <select id="StoreId" class="form-control" asp-items="ViewBag.Stores">
+                        <option value="">-- اختر مستودع --</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>القسم</label>
+                    <select id="CategoryId" class="form-control">
+                        <option value="">-- اختر قسم --</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>المادة</label>
+                    <select id="ItemId" class="form-control">
+                        <option value="">-- اختر مادة --</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label>الكمية</label>
+                    <input id="ItemQuantity" type="number" class="form-control" />
+                </div>
+                <div class="col-md-1 d-flex">
+                    <button type="button" id="btnAddItem" class="btn btn-success w-100">إضافة</button>
+                </div>
+            </div>
+
+            <table class="table table-bordered" id="itemsTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>المادة</th>
+                        <th>الكمية</th>
+                        <th>إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg">حفظ</button>
+</form>
+
+@section Scripts {
+    <script>
+        function recalc() {
+
+            const data = {
+                CopiesCount: parseInt(document.getElementById("CopiesCount").value) || 0,
+                PagesCount: parseInt(document.getElementById("PagesCount").value) || 0,
+                ManualSignatureCount: parseFloat(document.getElementById("ManualSignatureCount").value) || null
+            };
+            
+            fetch('@Url.Action("CalculateSignatures", "PrintOrders")', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(r => r.json())
+            .then(res => {
+                if (!res.success) return;
+
+                // تحديث الملخص
+                document.getElementById("sigCount").innerText = res.signatureCount;
+                document.getElementById("totalSig").innerText = res.totalSignatures;
+                document.getElementById("totalPress").innerText = res.totalPress;
+
+                // تحديث الجدول
+                const tbody = document.querySelector("#signaturesTable tbody");
+                tbody.innerHTML = "";
+                res.signatures.forEach(sig => {
+                    const row = `<tr>
+                        <td>${sig.signatureOrder}</td>
+                        <td>${sig.wholeSignature ? "نعم" : "لا"}</td>
+                        <td>${sig.signaturePart}</td>
+                        <td>${sig.requiredQuantity}</td>
+                    </tr>`;
+                    tbody.innerHTML += row;
+                });
+            });
+        }
+
+        document.getElementById("CopiesCount").addEventListener("input", recalc);
+        document.getElementById("PagesCount").addEventListener("input", recalc);
+        document.getElementById("ManualSignatureCount").addEventListener("input", recalc);
+
+
+
+        let items = [];
+
+        // تحميل الأقسام عند اختيار مستودع
+        $("#StoreId").change(function () {
+            alert("ddddddddddddddd");
+            let storeId = $(this).val();
+            $("#CategoryId").empty().append('<option value="">-- اختر قسم --</option>');
+            $("#ItemId").empty().append('<option value="">-- اختر مادة --</option>');
+            alert(StoreId);
+            if (storeId) {
+                $.getJSON(`/PrintOrders/GetCategoriesByStore?storeId=${storeId}`, function (data) {
+                    $.each(data, function (i, category) {
+                        $("#CategoryId").append(`<option value="${category.id}">${category.name}</option>`);
+                    });
+                });
+            }
+        });
+
+        // تحميل المواد عند اختيار قسم
+        $("#CategoryId").change(function () {
+            let categoryId = $(this).val();
+            $("#ItemId").empty().append('<option value="">-- اختر مادة --</option>');
+
+            if (categoryId) {
+                $.getJSON(`/PrintOrders/GetItemsByCategory?categoryId=${categoryId}`, function (data) {
+                    $.each(data, function (i, item) {
+                        $("#ItemId").append(`<option value="${item.id}">${item.name}</option>`);
+                    });
+                });
+            }
+        });
+
+        // إضافة مادة للجدول
+        $("#btnAddItem").click(function() {
+            let itemId = $("#ItemId").val();
+            let itemName = $("#ItemId option:selected").text();
+            let qty = $("#ItemQuantity").val();
+
+            if (!itemId || !qty) {
+                alert("اختر مادة وأدخل الكمية");
+                return;
+            }
+
+            items.push({ itemId: itemId, itemName: itemName, requiredAmount: qty });
+            renderItemsTable();
+        });
+
+        function renderItemsTable() {
+            let rows = "";
+            items.forEach((it, index) => {
+                rows += `<tr>
+                    <td>${it.itemName}</td>
+                    <td>${it.requiredAmount}</td>
+                    <td><button type="button" onclick="removeItem(${index})" class="btn btn-danger btn-sm">حذف</button></td>
+                </tr>`;
+            });
+            $("#itemsTable tbody").html(rows);
+        }
+
+        function removeItem(index) {
+            items.splice(index, 1);
+            renderItemsTable();
+        }
+
+        // عند الحفظ نضيف المواد كـ JSON
+        $("form").submit(function () {
+            $("<input>").attr({
+                type: "hidden",
+                name: "RequiredItemsJson",
+                value: JSON.stringify(items)
+            }).appendTo("form");
+            return true;
+        });
+
+
+
+    </script>
+}

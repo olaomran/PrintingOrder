@@ -2,7 +2,7 @@
 {
     public class PrintSize : BaseEntity
     {
-        PrintSize(int height, int width)
+        PrintSize(decimal height, decimal width)
         {
             Name = height.ToString() + "×" + width.ToString();
             Height = height;
@@ -10,8 +10,8 @@
         }
 
         public string Name { get; set; }
-        public int Height { get; set; }
-        public int Width { get; set; }
+        public decimal Height { get; set; }
+        public decimal Width { get; set; }
 
         public ICollection<PrintOrder>? PrintOrders { get; set; }
     }

@@ -21,7 +21,7 @@ namespace PrintingOrder.Models
 
       
         [Display(Name = "رقم المادة")]
-        public int? Order { get; set; }
+        public int? ItemOrder { get; set; }
 
         [Display(Name = "رقم المادة الفرعي")]
         public int? SubOrder { get; set; }

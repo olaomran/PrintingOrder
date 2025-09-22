@@ -1,157 +1,274 @@
-﻿@model PrintingOrder.Models.PrintOrder
-@using PrintingOrder.Models
-@{
-    ViewData["Title"] = "إنشاء أمر تشغيل";
-    var offset4Value = (int)MachineType.Offset4Color;
-}
+﻿@model PrintingOrder.ViewModels.SchoolPrintOrderCreateVM
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card shadow-lg border-0 rounded-3">
-                <div class="card-body p-5">
-                    <h2 class="fw-bold text-center text-primary mb-4">
-                        إضافة أمر طباعة كتاب مدرسي
-                    </h2>
-                    <hr />
+<h2 class="mb-4">إنشاء أمر تشغيل تجاري</h2>
 
-                    <form asp-action="Create">
-                        <div asp-validation-summary="All" class="text-danger  mb-3"></div>
+<form asp-action="Create" method="post" id="orderForm">
 
-                        @* <div class="mb-3">
-                            <label asp-for="MachineType" class="form-label"></label>
-                            <select asp-for="MachineType" class="form-select" id="MachineType"
-                                    asp-items="Html.GetEnumSelectList<MachineType>()"></select>
-                            <span asp-validation-for="MachineType" class="text-danger"></span>
-                        </div> *@
+    <div class="card mb-4">
+        <div class="card-header">بيانات أمر الطباعة</div>
+        <div class="card-body row g-3">
+            <div class="col-md-3">
+                <label asp-for="OrderNumber" class="form-label"></label>
+                <input asp-for="OrderNumber" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Date" class="form-label"></label>
+                <input asp-for="Date" type="date" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="PrintName" class="form-label"></label>
+                <input asp-for="PrintName" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="ContractNumber" class="form-label"></label>
+                <input asp-for="ContractNumber" class="form-control" />
+            </div>
 
-                        <div class="mb-3">
-                            <label asp-for="PrintName" class="form-label"></label>
-                            <input asp-for="PrintName" class="form-control" />
-                            <span asp-validation-for="PrintName" class="text-danger"></span>
-                        </div>
+            <!-- حقول جديدة -->
+            <div class="col-md-3">
+                <label asp-for="CustomerId" class="form-label">العائدية</label>
+                <select asp-for="CustomerId" asp-items="ViewBag.Customers" class="form-control"></select>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="IntryNumber" class="form-label">رقم الورود</label>
+                <input asp-for="IntryNumber" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="IntryDate" class="form-label">تاريخ الورود</label>
+                <input asp-for="IntryDate" type="date" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="PartyBookNumber" class="form-label">رقم كتاب الجهة</label>
+                <input asp-for="PartyBookNumber" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="PartyBookDate" class="form-label">تاريخ كتاب الجهة</label>
+                <input asp-for="PartyBookDate" type="date" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="AgreedDeliveryDate" class="form-label">التاريخ المتفق عليه للتسليم</label>
+                <input asp-for="AgreedDeliveryDate" type="date" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="DelegateId" class="form-label">المندوب</label>
+                <select asp-for="DelegateId" asp-items="ViewBag.Delegates" class="form-control"></select>
+            </div>
 
-                        <div class="mb-3">
-                            <label asp-for="Date" class="form-label"></label>
-                            <input asp-for="Date" type="date" class="form-control" />
-                            <span asp-validation-for="Date" class="text-danger"></span>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="ContractNumber" class="form-label"></label>
-                                <input asp-for="ContractNumber" class="form-control" />
-                                <span asp-validation-for="ContractNumber" class="text-danger"></span>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="OrderNumber" class="form-label"></label>
-                                <input asp-for="OrderNumber" class="form-control" />
-                                <span asp-validation-for="OrderNumber" class="text-danger"></span>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="CopiesCount" class="form-label"></label>
-                                <input asp-for="CopiesCount" class="form-control" id="CopiesCount" />
-                                <span asp-validation-for="CopiesCount" class="text-danger"></span>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="PagesCount" class="form-label"></label>
-                                <input asp-for="PagesCount" class="form-control" id="PagesCount" />
-                                <span asp-validation-for="PagesCount" class="text-danger"></span>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">عدد الملازم الكلي</label>
-                                <input asp-for="TotalPrintSignatureCount" class="form-control" id="TotalBooklets" readonly />
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">عدد الكبسات الإجمالي</label>
-                                <input asp-for="TotalPressRuns" class="form-control" id="TotalPressRuns" readonly />
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Size" class="form-label"></label>
-                            <select asp-for="Size" class="form-select">
-                                <option value="20.5x24">20.5 × 24</option>
-                                <option value="17.5x24">17.5 × 24</option>
-                            </select>
-                            <span asp-validation-for="Size" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Notes" class="form-label"></label>
-                            <textarea asp-for="Notes" class="form-control" rows="2"></textarea>
-                            <span asp-validation-for="Notes" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Details" class="form-label"></label>
-                            <textarea asp-for="Details" class="form-control" rows="3"></textarea>
-                            <span asp-validation-for="Details" class="text-danger"></span>
-                        </div>
-
-                        <div class="d-flex justify-content-between mt-4">
-                            <a asp-action="Index" class="btn btn-outline-secondary">
-                                عرض جميع أوامر التشغيل
-                            </a>
-                            <button type="submit" class="btn btn-primary px-4">
-                                إضافة
-                            </button>
-                        </div>
-                    </form>
-                </div>
+            <div class="col-md-3">
+                <label asp-for="CopiesCount" class="form-label"></label>
+                <input asp-for="CopiesCount" class="form-control" id="CopiesCount" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="PagesCount" class="form-label"></label>
+                <input asp-for="PagesCount" class="form-control" id="PagesCount" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="ManualSignatureCount" class="form-label">عدد الملازم للمطبوعة (يمكن التعديل)</label>
+                <input asp-for="ManualSignatureCount" class="form-control" id="ManualSignatureCount" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="PrintSizeId" class="form-label">قياس النموذج</label>
+                <select asp-for="PrintSizeId" asp-items="@(new SelectList(ViewBag.PrintSizes, "Id", "Name"))" class="form-control"></select>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="card mb-4">
+        <div class="card-header">الحسابات</div>
+        <div class="card-body">
+            <p>عدد الملازم للمطبوعة: <span id="sigCount">-</span></p>
+            <p>عدد الملازم الكلي: <span id="totalSig">-</span></p>
+            <p>عدد الكبسات الكلي: <span id="totalPress">-</span></p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">جدول الملازم المطلوبة</div>
+        <div class="card-body">
+            <table class="table table-bordered mb-0" id="signaturesTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>رقم الملزمة</th>
+                        <th>ملزمة كاملة</th>
+                        <th>جزء الملزمة</th>
+                        <th>الكمية المطلوبة</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">جدول كميات المواد المطلوبة</div>
+        <div class="card-body">
+            <div class="row g-3 align-items-end mb-3">
+                <div class="col-md-3">
+                    <label>المستودع</label>
+                    <select id="StoreId" class="form-control" asp-items="ViewBag.Stores">
+                        <option value="">-- اختر مستودع --</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>القسم</label>
+                    <select id="CategoryId" class="form-control">
+                        <option value="">-- اختر قسم --</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>المادة</label>
+                    <select id="ItemId" class="form-control">
+                        <option value="">-- اختر مادة --</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label>الكمية</label>
+                    <input id="ItemQuantity" type="number" class="form-control" />
+                </div>
+                <div class="col-md-1 d-flex">
+                    <button type="button" id="btnAddItem" class="btn btn-success w-100">إضافة</button>
+                </div>
+            </div>
+
+            <table class="table table-bordered" id="itemsTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>المادة</th>
+                        <th>الكمية</th>
+                        <th>إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg">حفظ</button>
+</form>
+
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const OFFSET4 = @offset4Value;
+        function recalc() {
 
-            const copiesEl = document.getElementById('CopiesCount');
-            const pagesEl = document.getElementById('PagesCount');
-            const machineEl = document.getElementById('MachineType');
-            const totalBookletsEl = document.getElementById('TotalBooklets');
-            const totalPressRunsEl = document.getElementById('TotalPressRuns');
+            const data = {
+                CopiesCount: parseInt(document.getElementById("CopiesCount").value) || 0,
+                PagesCount: parseInt(document.getElementById("PagesCount").value) || 0,
+                ManualSignatureCount: parseFloat(document.getElementById("ManualSignatureCount").value) || null
+            };
 
-            function isOffsetFour() {
-                const val = machineEl.value;
-                const parsed = parseInt(val);
-                if (!isNaN(parsed)) return parsed === OFFSET4;
-                if (val === 'Offset4Color') return true;
-                const txt = machineEl.selectedOptions?.[0]?.text || '';
-                return txt.includes('4 لون') || txt.toLowerCase().includes('4');
+            fetch('@Url.Action("CalculateSignatures", "PrintOrders")', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(r => r.json())
+            .then(res => {
+                if (!res.success) return;
+
+                // تحديث الملخص
+                document.getElementById("sigCount").innerText = res.signatureCount;
+                document.getElementById("totalSig").innerText = res.totalSignatures;
+                document.getElementById("totalPress").innerText = res.totalPress;
+
+                // تحديث الجدول
+                const tbody = document.querySelector("#signaturesTable tbody");
+                tbody.innerHTML = "";
+                res.signatures.forEach(sig => {
+                    const row = `<tr>
+                        <td>${sig.signatureOrder}</td>
+                        <td>${sig.wholeSignature ? "نعم" : "لا"}</td>
+                        <td>${sig.signaturePart}</td>
+                        
+                        <td>${sig.requiredQuantity}</td>
+                    </tr>`;
+                    tbody.innerHTML += row;
+                });
+            });
+        }
+
+        document.getElementById("CopiesCount").addEventListener("input", recalc);
+        document.getElementById("PagesCount").addEventListener("input", recalc);
+        document.getElementById("ManualSignatureCount").addEventListener("input", recalc);
+
+
+
+        let items = [];
+
+        // تحميل الأقسام عند اختيار مستودع
+        $("#StoreId").change(function () {
+            let storeId = $(this).val();
+            $("#CategoryId").empty().append('<option value="">-- اختر قسم --</option>');
+            $("#ItemId").empty().append('<option value="">-- اختر مادة --</option>');
+            alert(StoreId);
+            if (storeId) {
+                $.getJSON(`/PrintOrders/GetCategoriesByStore?storeId=${storeId}`, function (data) {
+                    $.each(data, function (i, category) {
+                        $("#CategoryId").append(`<option value="${category.id}">${category.name}</option>`);
+                    });
+                });
             }
-
-            function calculate() {
-                const copies = parseInt(copiesEl?.value) || 0;
-                const pages = parseInt(pagesEl?.value) || 0;
-
-                const perCopyBooklets = pages > 0 ? Math.ceil(pages / 16) : 0;
-                const totalBooklets = perCopyBooklets * copies;
-
-                let totalPressRuns = totalBooklets;
-                if (isOffsetFour()) {
-                    totalPressRuns = Math.ceil(totalBooklets / 2);
-                }
-
-                totalBookletsEl.value = totalBooklets;
-                totalPressRunsEl.value = totalPressRuns;
-            }
-
-            [copiesEl, pagesEl, machineEl].forEach(el => el?.addEventListener('input', calculate));
-            calculate();
         });
+
+        // تحميل المواد عند اختيار قسم
+        $("#CategoryId").change(function () {
+            let categoryId = $(this).val();
+            $("#ItemId").empty().append('<option value="">-- اختر مادة --</option>');
+
+            if (categoryId) {
+                $.getJSON(`/PrintOrders/GetItemsByCategory?categoryId=${categoryId}`, function (data) {
+                    $.each(data, function (i, item) {
+                        $("#ItemId").append(`<option value="${item.id}">${item.name}</option>`);
+                    });
+                });
+            }
+        });
+
+        // إضافة مادة للجدول
+        $("#btnAddItem").click(function() {
+            let itemId = $("#ItemId").val();
+            let itemName = $("#ItemId option:selected").text();
+            let qty = $("#ItemQuantity").val();
+
+            if (!itemId || !qty) {
+                alert("اختر مادة وأدخل الكمية");
+                return;
+            }
+
+            items.push({ itemId: itemId, itemName: itemName, requiredAmount: qty });
+            renderItemsTable();
+        });
+
+        function renderItemsTable() {
+            let rows = "";
+            items.forEach((it, index) => {
+                rows += `<tr>
+                    <td>${it.itemName}</td>
+                    <td>${it.requiredAmount}</td>
+                    <td><button type="button" onclick="removeItem(${index})" class="btn btn-danger btn-sm">حذف</button></td>
+                </tr>`;
+            });
+            $("#itemsTable tbody").html(rows);
+        }
+
+        function removeItem(index) {
+            items.splice(index, 1);
+            renderItemsTable();
+        }
+
+        // عند الحفظ نضيف المواد كـ JSON
+        $("form").submit(function () {
+            $("<input>").attr({
+                type: "hidden",
+                name: "RequiredItemsJson",
+                value: JSON.stringify(items)
+            }).appendTo("form");
+            return true;
+        });
+
+
+
     </script>
 }

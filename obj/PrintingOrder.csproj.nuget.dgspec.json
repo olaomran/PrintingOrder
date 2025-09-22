@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\omran\\source\\repos\\PrintingOrder\\PrintingOrder.csproj": {}
+    "C:\\Users\\omran\\source\\repos\\PrintingOrder - Copy\\PrintingOrder.csproj": {}
   },
   "projects": {
-    "C:\\Users\\omran\\source\\repos\\PrintingOrder\\PrintingOrder.csproj": {
+    "C:\\Users\\omran\\source\\repos\\PrintingOrder - Copy\\PrintingOrder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\PrintingOrder.csproj",
+        "projectUniqueName": "C:\\Users\\omran\\source\\repos\\PrintingOrder - Copy\\PrintingOrder.csproj",
         "projectName": "PrintingOrder",
-        "projectPath": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\PrintingOrder.csproj",
+        "projectPath": "C:\\Users\\omran\\source\\repos\\PrintingOrder - Copy\\PrintingOrder.csproj",
         "packagesPath": "C:\\Users\\omran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\omran\\source\\repos\\PrintingOrder\\obj\\",
+        "outputPath": "C:\\Users\\omran\\source\\repos\\PrintingOrder - Copy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.105.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.17, )"
@@ -102,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

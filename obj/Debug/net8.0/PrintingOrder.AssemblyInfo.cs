@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PrintingOrder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05043c70a33190c26e75fdb6bece3511a01d1f94")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+918dad7aa487ad2c67be351faea9791788f6038c")]
 [assembly: System.Reflection.AssemblyProductAttribute("PrintingOrder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PrintingOrder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
